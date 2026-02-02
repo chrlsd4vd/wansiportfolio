@@ -1,0 +1,116 @@
+* {
+  font-family: Arial, sans-serif;
+}
+
+.portfolio-box {
+  width: 90%;
+  max-width: 1300px;
+  padding: 30px 40px;
+  margin: 40px auto;
+
+  border: 2px solid #e0e0e0;
+  border-radius: 20px;
+
+  background-color: white;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.profile-pic {
+  width: 2in;
+  height: 2in;
+  border-radius: 50%;
+  border: 3px solid rgb(5, 7, 114);
+  display: block;
+  margin-bottom: 15px;
+}
+
+.about-box {
+  width: 90%;
+  max-width: 1300px;
+  padding: 30px 40px;
+  margin: 40px auto;
+
+  border: 2px solid #e0e0e0;
+  border-radius: 20px;
+
+  background-color: white;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.language-box {
+  width: 90%;
+  max-width: 1300px;
+  padding: 30px 40px;
+  margin: 40px auto;
+
+  border: 2px solid #e0e0e0;
+  border-radius: 20px;
+
+  background-color: white;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.project-box {
+  width: 90%;
+  max-width: 1300px;
+  padding: 30px 40px;
+  margin: 40px auto;
+
+  border: 2px solid #e0e0e0;
+  border-radius: 20px;
+
+  background-color: white;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.hobbies-box {
+  width: 90%;
+  max-width: 1300px;
+  padding: 30px 40px;
+  margin: 40px auto;
+
+  border: 2px solid #e0e0e0;
+  border-radius: 20px;
+
+  background-color: white;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.funfact-box {
+  width: 90%;
+  max-width: 1300px;
+  padding: 30px 40px;
+  margin: 40px auto;
+
+  border: 2px solid #e0e0e0;
+  border-radius: 20px;
+
+  background-color: white;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.skills-box {
+  width: 90%;
+  max-width: 1300px;
+  padding: 30px 40px;
+  margin: 40px auto;
+
+  border: 2px solid #e0e0e0;
+  border-radius: 20px;
+
+  background-color: white;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.contact-box {
+  width: 90%;
+  max-width: 1300px;
+  padding: 30px 40px;
+  margin: 40px auto;
+
+  border: 2px solid #e0e0e0;
+  border-radius: 20px;
+
+  background-color: white;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
