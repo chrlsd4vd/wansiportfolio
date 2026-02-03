@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposal</title>
+</head>
+<body>
+    <fieldset>
+        <legend><h1 style="color: blue;">Request for Proposal</h1></legend>
+            <table border="0";>
+                <tr>
+                    <td>Your company: </td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td align="right">Email: </td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td align="right">Username: </td>
+                    <td><input type="text" name="name"></td>
+                </tr>
+                <tr>
+                    <td align="right">Password: </td>
+                    <td><input type="password" name="pass" /></td>
+                </tr>
+                <tr>
+                    <td align="right">Your business: </td>
+                    <td><textarea name="text" ></textarea></td>
+                </tr>
+                <tr>
+                    <td align="right">Company size: </td>
+                    <td><input type="radio" id="" value="" name="mnum" /> <label>less than 10</label><td>
+                    <tr>
+                        <td><td><input type="radio" id="" value="" name="mnum" /> <label>10 to 50</label><td></td>
+                    </tr>
+                    <tr>
+                        <td><td><input type="radio" id="" value="" name="mnum" /> <label>50 to 200</label><td></td>
+                    </tr>
+                    <tr>
+                        <td><td><input type="radio" id="" value="" name="mnum" /> <label>over 200</label><td></td>
+                    </tr>
+                </tr>
+                <tr>
+                    <td align="right">Services: </td>
+                    <td> 
+                        <input type="checkbox" /> <label>Brand Identiry</label>
+                        <input type="checkbox" /> <label>New Website</label>
+                        <input type="checkbox" /> <label>Web Redesign</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">Timeline: </td>
+                    <td><select>
+                        <optgroup>
+                            <option>Select 1</option>
+                            <option>Immediately</option>
+                            <option>1-2 weeeks</option>
+                            <option>3-6 weeks</option>
+                            <option>7-2 months</option>
+                        </optgroup>
+                    </select></td>
+                    <tr>
+                        <td><td><button>Send to dev/design</button></td></td>
+                    </tr>
+            </table>
+    </fieldset>
+</body>
+</html>
