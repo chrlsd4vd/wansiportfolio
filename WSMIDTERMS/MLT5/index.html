@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DAVID | RESUME</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: #f0f8ff;
+        font-family: "Georgia", "Times New Roman", serif;
+        line-height: 1.6;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+
+      .resume-container {
+        background-color: #ffffff;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 40px 30px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(30, 58, 138, 0.1);
+        border: 1px solid #93c5fd;
+      }
+
+      .section-heading {
+        color: #1e3a8a;
+        border-bottom: 3px solid #3b82f6;
+        padding-bottom: 8px;
+        margin-top: 35px;
+      }
+
+      #contact-details {
+        text-align: center;
+        font-size: 0.95rem;
+        line-height: 1.5;
+        margin: 15px 0 25px 0;
+        background-color: #e0f2fe;
+        padding: 12px;
+        border-radius: 5px;
+        color: #1e40af;
+      }
+
+      p {
+        margin-bottom: 15px;
+        color: #1f2937;
+        text-align: justify;
+      }
+
+      ul {
+        margin-left: 25px;
+        margin-bottom: 20px;
+      }
+
+      li {
+        margin-bottom: 8px;
+        color: #374151;
+      }
+
+      #reference-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        margin-bottom: 30px;
+        box-shadow: 0 2px 5px rgba(30, 58, 138, 0.1);
+      }
+
+      #reference-table th {
+        background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+        color: #ffffff;
+        padding: 12px;
+        text-align: left;
+        border: 1px solid #93c5fd;
+      }
+
+      #reference-table td {
+        padding: 10px;
+        border: 1px solid #93c5fd;
+      }
+
+      #reference-table tr:nth-child(even) {
+        background-color: #eff6ff;
+      }
+
+      #reference-table tr:nth-child(odd) {
+        background-color: #ffffff;
+      }
+
+      #reference-table tr:hover {
+        background-color: #dbeafe;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      a:link {
+        color: #2563eb;
+      }
+
+      a:visited {
+        color: #7c3aed;
+      }
+
+      a:hover {
+        color: #dc2626;
+        text-decoration: underline;
+      }
+
+      a:active {
+        color: #991b1b;
+      }
+
+      .quick-nav {
+        background-color: #eff6ff;
+        padding: 10px 20px;
+        border-radius: 5px;
+        margin-bottom: 25px;
+        text-align: center;
+        border-left: 4px solid #3b82f6;
+        color: #1e40af;
+      }
+
+      .quick-nav a {
+        color: #2563eb;
+        font-weight: 600;
+      }
+
+      .quick-nav a:hover {
+        color: #1e40af;
+      }
+
+      .top-link {
+        text-align: center;
+        margin-top: 40px;
+        padding-top: 20px;
+        border-top: 2px solid #dbeafe;
+      }
+
+      .job-item {
+        margin-bottom: 15px;
+        background-color: #f8fafc;
+        padding: 15px;
+        border-radius: 0 5px 5px 0;
+        border-left: 3px solid #3b82f6;
+      }
+
+      .date {
+        color: #6b7280;
+        font-style: italic;
+      }
+
+      hr {
+        border: none;
+        height: 1px;
+        background: linear-gradient(
+          to right,
+          transparent,
+          #93c5fd,
+          transparent
+        );
+        margin: 30px 0;
+      }
+
+      .skill-category {
+        font-weight: bold;
+        color: #1e40af;
+      }
+
+      .sub-item {
+        margin-left: 20px;
+        list-style-type: circle;
+      }
+
+      h1 {
+        color: #1e3a8a;
+        margin-bottom: 5px;
+        font-size: 28px;
+      }
+
+      h3 {
+        color: #3b82f6;
+        margin-top: 0;
+        font-weight: 600;
+      }
+
+      img {
+        border: 5px solid #3b82f6 !important;
+        box-shadow: 0 4px 8px rgba(59, 130, 246, 0.3);
+      }
+
+      .source-code-btn {
+        background: linear-gradient(135deg, #1e40af, #3b82f6);
+        color: #ffffff !important;
+        padding: 10px 25px;
+        border-radius: 5px;
+        font-weight: bold;
+        margin-right: 15px;
+        border: none;
+        cursor: pointer;
+        display: inline-block;
+        transition: none;
+      }
+
+      .source-code-btn:hover {
+        background: linear-gradient(135deg, #1e40af, #3b82f6);
+        color: #ffffff !important;
+        text-decoration: none;
+        transform: none;
+        box-shadow: none;
+        border: none;
+      }
+
+      .back-to-top {
+        font-weight: bold;
+        font-size: 14px;
+        padding: 8px 20px;
+        background-color: #e0f2fe;
+        color: #1e40af;
+        border-radius: 20px;
+        border: 1px solid #93c5fd;
+        transition: all 0.3s ease;
+      }
+
+      .back-to-top:hover {
+        background-color: #1e40af;
+        color: white;
+        border-color: #1e40af;
+      }
+
+      strong {
+        color: #1e3a8a;
+      }
+
+      em {
+        color: #3b82f6;
+        font-style: italic;
+      }
+
+      @media (max-width: 600px) {
+        .resume-container {
+          padding: 25px 15px;
+        }
+        #contact-details {
+          font-size: 0.85rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="resume-container">
+      <div class="quick-nav">
+        <strong style="color: #1e3a8a">Navigate to:</strong>
+        <a href="#education">Education</a> |
+        <a href="#experience">Work Experience</a> |
+        <a href="#hardware">Hardware Skills</a> |
+        <a href="#software">Software Skills</a> |
+        <a href="#additional">Additional Skills</a> |
+        <a href="#reference">Character Reference</a>
+      </div>
+
+      <div style="text-align: center; margin-bottom: 25px">
+        <h1>DAVID, CHARLES Y.</h1>
+        <h3>IT Student & Graphic Designer</h3>
+
+        <img
+          src="profile.jpeg"
+          alt="Profile Picture"
+          style="
+            width: 180px;
+            height: 180px;
+            border: 5px solid #3b82f6;
+            border-radius: 50%;
+            display: block;
+            margin: 15px auto;
+            box-shadow: 0 4px 8px rgba(59, 130, 246, 0.3);
+          "
+        />
+
+        <div id="contact-details">
+          <b style="color: #1e3a8a">Location:</b> Concepcion, Tarlac,
+          Philippines<br />
+          <b style="color: #1e3a8a">Email:</b>
+          <a href="mailto:chrlsdvd0777@gmail.com">chrlsdvd0777@gmail.com</a
+          ><br />
+          <b style="color: #1e3a8a">Phone:</b> +63 977 048 7261<br />
+          <b style="color: #1e3a8a">Portfolio:</b>
+          <a href="/WSPortfolio/index.html" style="font-weight: 600"
+            >chrlsd4vd.github.io/wansiportfolio</a
+          >
+        </div>
+      </div>
+
+      <div id="education">
+        <h2 class="section-heading">Education</h2>
+        <div class="job-item">
+          <strong>College BSIT</strong><br />
+          Holy Angel University <br />
+          <span class="date">2025 – 2025 / First Semester</span> <br />
+          Pampanga State Agriculture University<br />
+          <span class="date">2026 – Present</span>
+        </div>
+        <div class="job-item">
+          <strong>Junior High School</strong><br />
+          Benigno S. Aquino National High School<br />
+          <span class="date">2019 – 2023</span> <br />
+          <strong>Senior High School / HUMSS</strong><br />
+          Benigno S. Aquino National High School<br />
+          <span class="date">2023 – 2025</span>
+        </div>
+        <div class="job-item">
+          <strong>Elementary</strong><br />
+          San Miguel Elementary School<br />
+          <span class="date">Graduated 2019</span>
+        </div>
+      </div>
+
+      <hr />
+
+      <div id="experience">
+        <h2 class="section-heading">Work Experience</h2>
+        <div class="job-item">
+          <strong>Surface Scan, Dubai</strong> | <em>Freelancer</em><br />
+          <span class="date">2025</span>
+          <ul class="sub-item">
+            <li>Graphic Designer</li>
+            <li>Logo and Poster Making</li>
+            <li>Digital artwork creation for various platforms</li>
+          </ul>
+        </div>
+      </div>
+
+      <hr />
+
+      <div id="hardware">
+        <h2 class="section-heading">Hardware Skills</h2>
+        <p>
+          <span class="skill-category">Electric – EIM:</span> Knowledgeable in
+          assembling and connecting electrical wires, understanding basic
+          electrical circuits, and troubleshooting common hardware issues.
+        </p>
+      </div>
+
+      <hr />
+
+      <div id="software">
+        <h2 class="section-heading">Software Skills</h2>
+        <ul>
+          <li>
+            <span class="skill-category">Canva</span> – Advanced proficiency in
+            graphic design
+          </li>
+          <li>
+            <span class="skill-category">Affinity by Canva</span> – Professional
+            design software
+          </li>
+          <li>
+            <span class="skill-category">Photoshop</span> – Image editing and
+            manipulation
+          </li>
+          <li>
+            <span class="skill-category">HTML</span> – Web page structure and
+            semantics
+          </li>
+          <li>
+            <span class="skill-category">JAVA</span> – Object-oriented
+            programming
+          </li>
+          <li>
+            <span class="skill-category">Python</span> – Scripting and
+            automation
+          </li>
+        </ul>
+      </div>
+
+      <hr />
+
+      <div id="additional">
+        <h2 class="section-heading">Additional Skills</h2>
+        <ul>
+          <li>
+            <span class="skill-category">Graphic Design</span> – Creating logos,
+            posters, and digital artwork
+          </li>
+          <li>
+            <span class="skill-category">Adaptability</span> – Quickly adjusting
+            to new technologies and environments
+          </li>
+          <li>
+            <span class="skill-category">Arts</span> – Traditional and digital
+            art techniques
+          </li>
+          <li>
+            <span class="skill-category">Time Management</span> – Efficient task
+            prioritization and deadline management
+          </li>
+          <li>
+            <span class="skill-category">Sports</span> – Active participation in
+            basketball and badminton
+          </li>
+        </ul>
+      </div>
+
+      <hr />
+
+      <div id="reference">
+        <h2 class="section-heading">Character Reference</h2>
+        <table id="reference-table">
+          <thead>
+            <tr>
+              <th>FULL NAME</th>
+              <th>DESIGNATION</th>
+              <th>EMAIL</th>
+              <th>CONTACT NUMBER</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Charles David</td>
+              <td>Student</td>
+              <td>
+                <a href="mailto:chrlsdvd0777@gmail.com"
+                  >chrlsdvd0777@gmail.com</a
+                >
+              </td>
+              <td>09770487261</td>
+            </tr>
+            <tr>
+              <td>Lilibeth David</td>
+              <td>Hong Kong – OFW</td>
+              <td>
+                <a href="mailto:lilibethdavid@gmail.com"
+                  >lilibethdavid@gmail.com</a
+                >
+              </td>
+              <td>09922744292</td>
+            </tr>
+            <tr>
+              <td>Shiela David</td>
+              <td>Student</td>
+              <td>
+                <a href="mailto:shldvd1802@icloud.com">shldvd1802@icloud.com</a>
+              </td>
+              <td>09462976893</td>
+            </tr>
+            <tr>
+              <td>Noel David</td>
+              <td>Construction Worker</td>
+              <td>N/A</td>
+              <td>N/A</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div style="text-align: center; margin: 30px 0">
+        <a href="sourceCode.png" target="_blank" class="source-code-btn"
+          >View Source Code</a
+        >
+      </div>
+
+      <div class="top-link">
+        <a href="#top" class="back-to-top"> ↑ Back to Top </a>
+      </div>
+    </div>
+  </body>
+</html>
