@@ -1,171 +1,157 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Charles | Portfolio</title>
-</head>
-<body>
-    <div class="portfolio-box">
-    <h2>PORTFOLIO</h2>
+  </head>
+  <body>
+    <header class="top-nav">
+      <div class="logo"></div>
+      <button id="theme-toggle" aria-label="Toggle Theme">
+        <span class="sun-icon">☀️</span>
+        <span class="moon-icon">🌙</span>
+      </button>
+    </header>
 
-    <img src="images/animatedprof.png" class="profile-pic">
-
-    <p>
-        <b>CHARLES YUMUL DAVID</b><br>
-        Concepcion, Tarlac, Philippines<br>
-        chrlsdvd0777@gmail.com<br>
-        +63 977 048 7261
-    </p>
-
-    <p>
-        This <b>Enterprise Data Management Portfolio</b> showcases my
-        <b>EDM</b> lab activities and my growing skills in managing and organizing data.
-    </p>
-    </div>
-
-    <div class="about-box">
-    <h2>&#127775 About Me</h2>
-
-        <p>
-            Hi! I am <b>Charles</b>, a 19-year-old Information Technology student with a strong 
-            interest in graphic design and digital creativity. This portfolio is submitted for 
-            academic purposes and documents my learning progress, projects, and skills development.
+    <main class="bento-grid">
+      <!-- Profile Section -->
+      <section class="card profile-card">
+        <div class="profile-header">
+          <img src="images/profile.jpeg" alt="Profile Photo" class="profile-img" />
+          <div class="profile-info">
+            <p class="badge">PORTFOLIO</p>
+            <h1 class="name">CHARLES YUMUL DAVID</h1>
+            <p class="location">Concepcion, Tarlac, Philippines</p>
+            <div class="contact-quick">
+              <span>chrlsdvd0777@gmail.com</span>
+              <span>+63 977 048 7261</span>
+            </div>
+          </div>
+        </div>
+        <p class="bio">
+          This <strong>Enterprise Data Management Portfolio</strong> showcases
+          my <strong>EDM</strong> lab activities and my growing skills in
+          managing and organizing data.
         </p>
+      </section>
 
-    <h3>&#128483 What I Believe In:</h3>
-
-        <ul>
+      <!-- About Section -->
+      <section class="card about-card">
+        <h2 class="section-title">About Me</h2>
+        <p>
+          Hi! I am <strong>Charles</strong>, a 19-year-old Information
+          Technology student with a strong interest in graphic design and
+          digital creativity. This portfolio documents my learning progress,
+          projects, and skills development.
+        </p>
+        <div class="beliefs"> <br>
+          <h3>Core Beliefs</h3>
+          <ul style="list-style-type: disc; padding-left: 15px">
             <li>Consistency and patience lead to quality output</li>
             <li>Small improvements create long-term growth</li>
-            <li>Treating everyone well and trusting that good effort pays off</li>
-        </ul>
+            <li>Good effort always pays off</li>
+          </ul>
+        </div>
+      </section>
 
+      <!-- Row 3: Education, Connect, Skills -->
+      <section class="card education-card">
+        <h2 class="section-title">Education</h2>
+        <div class="edu-item">
+          <p class="year">Current</p>
+          <p class="school"><strong>BS Information Technology</strong></p>
+        </div>
+        <div class="edu-item">
+          <p class="year">Senior High</p>
+          <p class="school"><strong>Benigno S. Aquino National High School (HUMSS)</strong></p>
+        </div>
+      </section>
+
+      <section class="card contact-card">
+        <h2 class="section-title">Connect</h2>
+        <div class="social-links">
+          <a href="https://www.facebook.com/chxrlz.d4vd" target="_blank"><img src="images/facebook.png" alt="Facebook" /></a>
+          <a href="https://www.instagram.com/chx.d4vd" target="_blank"><img src="images/instagram.png" alt="Instagram" /></a>
+          <a href="https://www.tiktok.com/@chxrlzd4vd?lang=en" target="_blank"><img src="images/tiktok.png" alt="TikTok" /></a>
+          <a href="mailto:chrlsdvd0777@gmail.com"><img src="images/gmail.webp" alt="Gmail" /></a>
+          <a href="https://t.me/ch777x2" target="_blank"><img src="images/telegram.png" alt="Telegram" /></a>
+        </div>
+      </section>
+
+      <section class="card skills-card">
+        <h2 class="section-title">Skills</h2>
+        <ul class="skill-tags">
+          <li>Graphic Design</li>
+          <li>Digital Art</li>
+          <li>Time Management</li>
+          <li>Problem Solving</li>
+        </ul>
+      </section>
+
+      <!-- Row 4-6: Projects and Hobbies/Tech/Curiosity beside them -->
+      <section class="card projects-card">
+        <h2 class="section-title">Projects</h2>
+
+        <div class="project-container">
+          <div class="project-group">
+            <h3>Midterms</h3>
+            <ul class="project-list">
+              <li><a href="WSMIDTERMS/MLT1/index.html" target="_blank">Resume Writing</a></li>
+              <li><a href="WSMIDTERMS/MLT2/index.html" target="_blank">Table List</a></li>
+              <li><a href="WSMIDTERMS/MLT3/index.html" target="_blank">Request for Proposal</a></li>
+              <li><a href="WSMIDTERMS/MLT4/index.html" target="_blank">Image Map</a></li>
+              <li><a href="WSMIDTERMS/MLT5/index.html" target="_blank">Resume (Internal CSS)</a></li>
+              <li><a href="WSMIDTERMS/MLT6/index.html" target="_blank">Display Property</a></li>
+              <li><a href="WSMIDTERMS/MLT7/index.html" target="_blank">Semantic CSS</a></li>
+              <li><a href="WSMIDTERMS/MLT8/index.html" target="_blank">CSS Layout</a></li>
+            </ul>
+          </div>
+
+          <div class="project-group">
+            <h3>Finals</h3>
+            <ul class="project-list">
+              <li class="status">Development in progress...</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Row 4 Side-by-Side pieces -->
+      <section class="card hobbies-card">
+        <h2 class="section-title">Hobbies</h2>
+        <ul class="tag-list">
+          <li>Gaming</li>
+          <li>Designing</li>
+          <li>Music</li>
+          <li>Movies</li>
+        </ul>
+      </section>
+
+      <section class="card tech-card">
+        <h2 class="section-title">Tech Stack</h2>
+        <div class="icon-grid">
+          <img src="images/python.webp" alt="Python" title="Python" />
+          <img src="images/java.png" alt="Java" title="Java" />
+          <img src="images/html.png" alt="HTML" title="HTML" />
+          <img src="images/canva.png" alt="Canva" title="Canva" />
+          <img src="images/photoshop.png" alt="Photoshop" title="Photoshop" />
+          <img src="images/affinity.png" alt="Affinity" title="Affinity" />
+        </div>
+      </section>
+
+      <!-- Row 5-6 Piece -->
+      <section class="card facts-card">
+        <h2 class="section-title">Curiosity</h2>
         <p>
-            I consistently refine my work output to strengthen my <b>professional background</b>, 
-            while actively enhancing my portfolio to better present my skills and capabilities.
+          I started designing out of curiosity, and it became a passion. I can
+          spend hours adjusting tiny details to make it feel right.
         </p>
+      </section>
+    </main>
+    </main>
 
-    <h3>&#127891 Education</h3>
-
-        <p>
-            <b>Senior High School</b>: Benigno S. Aquino National High School | <b><i>HUMSS</i></b>
-            <br><b>Junior High School</b>: Benigno S. Aquino National High School
-            <br><b>Elementary School</b>: San Miguel Elementary School
-        </p>
-    </div>
-
-    <div class="language-box">
-        <h2>&#128187 Language and Software I used before:</h2>
-        
-            <img src="images/python.webp" style="width: 5pc; height: 5pc; border: 2px solid rgb(0, 0, 0); border-radius: 1pc;">
-            <img src="images/java.png" style="width: 5pc; height: pc; border: 2px solid rgb(0, 0, 0); border-radius: 1pc;">
-            <img src="images/html.png" style="width: 5pc; height: 5pc; border: 2px solid rgb(0, 0, 0); border-radius: 1pc;">
-            <img src="images/canva.png" style="width: 5pc; height: 5pc; border: 2px solid rgb(0, 0, 0); border-radius: 1pc;">
-            <img src="images/photoshop.png" style="width: 5pc; height: 5pc; border: 2px solid rgb(0, 0, 0); border-radius: 1pc;">
-            <img src="images/affinity.png" style="width: 5pc; height: 5pc; border: 2px solid rgb(0, 0, 0); border-radius: 1pc;">
-    </div>
-
-    <div class="project-box">
-    <h2>&#127986 My Projects</h2>
-
-        <h4>&#128392 MIDTERMS</h4>
-
-            <p><b>&#128193 MIDTERM LAB TASK 1:</b> <a href="WSMIDTERMS/MLT1/index.html" target="_blank" style="text-decoration: none; color: red;">
-                Resume Writing using HTML</a>
-            <br><b>&#128193 MIDTERM LAB TASK 2:</b> <a href="WSMIDTERMS/MLT2/index.html" target="_blank" style="text-decoration: none; color: red;">
-                Table List using HTML</a>
-            <br><b>&#128193 MIDTERM LAB TASK 3:</b> <a href="WSMIDTERMS/MLT3/index.html" target="_blank" style="text-decoration: none; color: red;">
-                Request for Proposal</a>
-            <br><b>&#128193 MIDTERM LAB TASK 4:</b> <a href="WSMIDTERMS/MLT4/index.html" target="_blank" style="text-decoration: none; color: red;">
-                Image Map</a>
-            <br><b>&#128193 MIDTERM LAB TASK 5:</b> <a href="WSMIDTERMS/MLT5/index.html" target="_blank" style="text-decoration: none; color: red;">
-                Resume with Internal CSS</a>
-            <br><b>&#128193 MIDTERM LAB TASK 6:</b> <a href="WSMIDTERMS/MLT4/index.html" target="_blank" style="text-decoration: none;">
-                Ongoing...</a>
-            <br> Coming Soon...
-            </p>
-
-        <h4>&#128392 FINALS</h4>
-
-            <p>
-                <b>&#128193 FINAL LAB TASK 1:</b> <a href="WSFINALS/FLT1/index.html" target="_blank" style="text-decoration: none;">
-            Ongoing...</a>
-            <br><b>&#128193 FINAL LAB TASK 2:</b> <a href="WSFINALS/FLT2/index.html" target="_blank" style="text-decoration: none;">
-            Ongoing...</a>
-            <br><b>&#128193 FINAL LAB TASK 3:</b> <a href="WSFINALS/FLT3/index.html" target="_blank" style="text-decoration: none;">
-            Ongoing...</a>
-            <br><b>&#128193 FINAL LAB TASK 4:</b> <a href="WSFINALS/FLT4/index.html" target="_blank" style="text-decoration: none;">
-            Ongoing...</a>
-            <br><b>&#128193 FINAL LAB TASK 5:</b> <a href="WSFINALS/FLT4/index.html" target="_blank" style="text-decoration: none;">
-            Ongoing...</a>
-            <br><b>&#128193 FINAL LAB TASK 6:</b> <a href="WSFINALS/FLT4/index.html" target="_blank" style="text-decoration: none;">
-            Ongoing...</a>
-            <br> Coming Soon.
-            </p>
-    </div>
-
-    <div class="hobbies-box">
-        <h2>&#128158 Hobbies:</h2>
-        <ul>
-            <li>Playing video games. &#127918</li>
-            <li>Exploring new skills to build a strong portfolio. &#128736</li>
-            <li>Watching series movies. &#128253	</li>
-            <li>Learning new tools, apps, and design trends. &#128395</li>
-            <li>Listening to music while designing or coding. &#127900</li>
-            <li>Making designs that feel both modern and meaningful. &#128187</li>
-        </ul>
-    </div>
-
-    <div class="funfact-box">
-    <h2>&#129504 Fun Fact About Me:</h2>
-        <ul>
-            <li><b>Every project</b> pushes me to <b>improve</b> my creative skills.</li>
-            <li>I can spend hours adjusting <b>tiny details</b> just to make a design feel right.</li>
-            <li>I started designing out of <b>curiosity</b>, and it became a <b>passion</b>.</li>
-            <li>I’m always <b>asleep</b>, but somehow my <b>creativity</b> wakes up when it’s time to design.</li>
-        </ul>
-    </div>
-
-    <div class="skills-box">
-    <h2>&#128498 Skills:</h2>
-        <ul>
-            <li>Graphic Designer</li>
-            <li>Arts</li>
-            <li>Time Management</li>
-            <li>Sporty and Active</li>
-        </ul>
-    </div>
-
-    <div class="contact-box">
-    <h2>&#128222 Contact!</h2>
-
-        <a href="https://www.facebook.com/chxrlz.d4vd" target="_blank" style="text-decoration: none;"> 
-            <img src="images/facebook.png" style="width: 5pc; height: 5pc;">
-        </a>
-    
-        <a href="https://www.instagram.com/chx.d4vd" target="_blank" style="text-decoration: none;">
-            <img src="images/instagram.png" style="width: 5pc; height: 5pc;">
-        </a>
-
-        <a href="https://www.tiktok.com/@chxrlzd4vd?lang=en" target="_blank" style="text-decoration: none;">
-            <img src="images/tiktok.png" style="width: 5pc; height: 5pc;">
-        </a>
-
-        <a href ="mailto:chrlsdvd0777@gmail.com" target="_blank" style="text-decoration: none;">
-            <img src="images/gmail.webp" style="width: 5pc; height: 5pc;">
-        </a>
-
-        <a href ="https://t.me/ch777x2" target="_blank" style="text-decoration: none;">
-            <img src="images/telegram.png" style="width: 5pc; height: 5pc;">
-        </a>
-    </div>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
-
-
-
-
-
-
