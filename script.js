@@ -87,42 +87,86 @@ const removeTypingIndicator = () => {
     }
 };
 
-// Send message to backend
 const sendMessage = async () => {
-    const message = chatbotInput.value.trim();
-    if (!message) return;
+    const messageStr = chatbotInput.value.trim();
+    if (!messageStr) return;
 
     // Display user message
-    addMessage(message, 'user');
+    addMessage(messageStr, 'user');
     chatbotInput.value = '';
 
     // Show loading
     showTypingIndicator();
+    
+    // Simulate thinking time so it feels real
+    await new Promise(r => setTimeout(r, 600));
 
     try {
-        // Automatically use http://localhost:5000 if running through VS Code Live Server or file://
-        const isLocalDevelopment = window.location.hostname === '127.0.0.1' || window.location.protocol === 'file:';
-        const backendUrl = isLocalDevelopment ? 'http://localhost:5000/api/chat' : '/api/chat';
+        const msg = messageStr.toLowerCase();
 
-        const response = await fetch(backendUrl, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ message })
-        });
-        
-        const data = await response.json();
-        removeTypingIndicator();
+        // 1. Check for MLT exact queries (e.g., "Give me the code for MLT1")
+        const mltMatch = msg.match(/mlt[1-8]/i);
+        if (mltMatch) {
+            const mltId = mltMatch[0].toUpperCase();
+            let mltCode = null;
 
-        if (data.error) {
-            addMessage('Error: ' + data.error, 'ai');
-        } else {
-            addMessage(data.text, 'ai', data.type);
+            try {
+                // Fetch from the local folder relativity (Works on Github Pages)
+                const htmlRes = await fetch(`WSMIDTERMS/${mltId}/index.html`);
+                if (htmlRes.ok) {
+                    const htmlText = await htmlRes.text();
+                    mltCode = `<!-- ${mltId} index.html -->\n` + htmlText;
+                    
+                    const cssRes = await fetch(`WSMIDTERMS/${mltId}/style.css`);
+                    if (cssRes.ok) {
+                        const cssText = await cssRes.text();
+                        mltCode += `\n\n/* ${mltId} style.css */\n` + cssText;
+                    }
+                }
+            } catch (e) {
+                console.error('Failed to fetch local files', e);
+            }
+
+            if (mltCode) {
+                removeTypingIndicator();
+                addMessage(mltCode, 'ai', 'raw');
+                return;
+            } else {
+                removeTypingIndicator();
+                addMessage(`Sorry, I couldn't find the source code for ${mltId}.`, 'ai');
+                return;
+            }
         }
+
+        // 2. Predefined Rule-Based Responses
+        let responseText = "I'm a simple portfolio assistant! Ask me about Charles' skills, education, contact info, or ask for the code of **MLT1 to MLT8**.";
+        
+        if (msg.includes('name') || msg.includes('who are you')) {
+            responseText = "I'm Charles Yumul David's personal portfolio assistant!";
+        } else if (msg.includes('skill') || msg.includes('can do')) {
+            responseText = "Charles' core skills include:\n- Graphic Design\n- Digital Art\n- Problem Solving\n- Time Management\n\nTech stack: Python, Java, HTML, Canva, Photoshop, Affinity.";
+        } else if (msg.includes('education') || msg.includes('school') || msg.includes('student')) {
+            responseText = "Charles is currently a 19-year-old BS Information Technology student. He completed his Senior High School at Benigno S. Aquino National High School under the HUMSS strand.";
+        } else if (msg.includes('bio') || msg.includes('about')) {
+            responseText = "This Enterprise Data Management Portfolio showcases Charles' EDM lab activities and his growing skills in managing and organizing data. He has a strong interest in graphic design and digital creativity.";
+        } else if (msg.includes('contact') || msg.includes('email') || msg.includes('phone') || msg.includes('hire')) {
+            responseText = "**Email**: chrlsdvd0777@gmail.com\n**Phone**: +63 977 048 7261\n**Location**: Concepcion, Tarlac, Philippines";
+        } else if (msg.includes('hobby') || msg.includes('hobbies') || msg.includes('interests')) {
+            responseText = "Charles enjoys Gaming, Designing, Music, and Movies!";
+        } else if (msg.includes('belief') || msg.includes('motto') || msg.includes('quote')) {
+            responseText = "Consistency and patience lead to quality output. Small improvements create long-term growth. Good effort always pays off.";
+        } else if (msg.includes('hello') || msg.includes('hi ') || msg === 'hi') {
+            responseText = "Hello! Ask me about Charles' skills, education, or to fetch raw code for his Midterm (MLT1 to MLT8) projects!";
+        } else if (msg.includes('thank')) {
+            responseText = "You're very welcome! Let me know if you want the code for any of the MLT projects.";
+        }
+
+        removeTypingIndicator();
+        addMessage(responseText, 'ai');
+
     } catch (error) {
         removeTypingIndicator();
-        addMessage('Sorry, I cannot connect to the server right now.', 'ai');
+        addMessage('Sorry, an error occurred in the chat logic.', 'ai');
         console.error('Chat Error:', error);
     }
 };
