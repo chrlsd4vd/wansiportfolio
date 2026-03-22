@@ -165,6 +165,11 @@ body:not(.light) .sun-icon {
   grid-column: span 3;
   grid-row: span 2;
   border-radius: var(--radius-lg);
+  overflow: visible;
+}
+
+.profile-card::after {
+  display: none; /* Hide shimmer on profile card to avoid overflow artifacts */
 }
 .about-card {
   grid-column: span 1;
@@ -230,14 +235,106 @@ body:not(.light) .sun-icon {
   display: flex;
   gap: 2rem;
   margin-bottom: 2rem;
+  padding-left: 10px; /* room for left-side badge */
+  overflow: visible;
+}
+
+.year {
+  color: var(--text-muted);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Animated Profile Picture */
+.profile-img-wrapper {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  flex-shrink: 0;
+}
+
+.profile-ring {
+  display: none;
 }
 
 .profile-img {
-  width: 140px;
-  height: 140px;
-  border-radius: 10%;
+  position: relative;
+  width: 160px;
+  height: 160px;
+  border-radius: 10px;
   object-fit: cover;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  object-position: top center;
+  z-index: 1;
+  display: block;
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.35);
+}
+
+/* Skill Badges */
+.skill-badge {
+  position: absolute;
+  background: rgba(15, 23, 42, 0.85);
+  color: #f1f5f9;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.3rem 0.75rem;
+  border-radius: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(6px);
+  white-space: nowrap;
+  z-index: 2;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.badge-python {
+  top: 10px;
+  left: -40px;
+  animation: float-badge 3s ease-in-out infinite;
+}
+
+.badge-java {
+  top: 50%;
+  left: -45px;
+  transform: translateY(-50%);
+  animation: float-badge 3s ease-in-out infinite 0.7s;
+}
+
+.badge-html {
+  bottom: 10px;
+  left: -78px;
+  animation: float-badge 3s ease-in-out infinite 1.4s;
+}
+
+@keyframes spin-ring {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes float-badge {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.badge-java {
+  animation: float-badge-mid 3s ease-in-out infinite 0.7s;
+}
+
+@keyframes float-badge-mid {
+  0%,
+  100% {
+    transform: translateY(-50%);
+  }
+  50% {
+    transform: translateY(calc(-50% - 5px));
+  }
 }
 
 .profile-info .badge {
@@ -256,6 +353,28 @@ body:not(.light) .sun-icon {
   font-weight: 800;
   line-height: 1;
   margin-bottom: 0.5rem;
+  font-family: "Consolas", "Monaco", "Courier New", monospace;
+  letter-spacing: -0.05em;
+  display: inline-block;
+}
+
+.profile-info .name .code-punct {
+  color: var(--accent);
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+.profile-info .name::after {
+  content: "_";
+  color: var(--accent);
+  animation: blink 1s step-end infinite;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
 }
 
 .profile-info .location {
@@ -272,7 +391,7 @@ body:not(.light) .sun-icon {
 .bio {
   font-size: 1.125rem;
   color: var(--text-secondary);
-  max-width: 600px;
+  max-width: 100%;
 }
 
 /* General Styles */
@@ -449,7 +568,9 @@ body.light .skill-tags li {
   align-items: center;
   justify-content: center;
   z-index: 1000;
-  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), background 0.3s ease;
+  transition:
+    transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    background 0.3s ease;
 }
 
 .chatbot-toggle-btn:hover {
@@ -474,7 +595,10 @@ body.light .skill-tags li {
   z-index: 1000;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease,
+    visibility 0.3s ease;
   transform-origin: bottom right;
 }
 
@@ -593,7 +717,9 @@ body.light .skill-tags li {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.2s, background 0.2s;
+  transition:
+    transform 0.2s,
+    background 0.2s;
 }
 
 #chatbot-send:hover {
@@ -620,8 +746,13 @@ body.light .skill-tags li {
 }
 
 @keyframes typing {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-4px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
 }
 
 .raw-code {
@@ -630,7 +761,7 @@ body.light .skill-tags li {
   padding: 1rem;
   border-radius: 4px;
   overflow-x: auto;
-  font-family: 'Consolas', 'Monaco', monospace;
+  font-family: "Consolas", "Monaco", monospace;
   font-size: 0.85rem;
   margin: 0;
   white-space: pre;
@@ -644,4 +775,3 @@ body.light .skill-tags li {
     height: 70vh;
   }
 }
-
