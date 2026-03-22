@@ -61,6 +61,8 @@ const addMessage = (message, sender, type = "text") => {
 
   if (type === "raw") {
     msgDiv.innerHTML = formatRawCode(message);
+  } else if (type === "html") {
+    msgDiv.innerHTML = message;
   } else {
     msgDiv.textContent = message;
   }
@@ -97,17 +99,84 @@ const sendMessage = async () => {
 
   // Show loading
   showTypingIndicator();
-
-  // Simulate thinking time so it feels real
-  await new Promise((r) => setTimeout(r, 600));
+  await new Promise((r) => setTimeout(r, 400));
 
   try {
     const msg = messageStr.toLowerCase();
 
-    // 1. Check for MLT exact queries (e.g., "Give me the code for MLT1")
-    const mltMatch = msg.match(/mlt[1-8]/i);
-    if (mltMatch) {
-      const mltId = mltMatch[0].toUpperCase();
+    // 1. Check for MLT queries by number OR by topic keyword
+    const mltKeywords = {
+      MLT1: [
+        "mlt1",
+        "resume writing",
+        "first lab",
+        "first laboratory",
+        "resume writing lab",
+      ],
+      MLT2: [
+        "mlt2",
+        "table list",
+        "unordered",
+        "ordered list",
+        "ul and ol",
+        "ul ol",
+        "second lab",
+        "second laboratory",
+      ],
+      MLT3: [
+        "mlt3",
+        "request for proposal",
+        "rfp",
+        "proposal",
+        "third lab",
+        "third laboratory",
+      ],
+      MLT4: [
+        "mlt4",
+        "image map",
+        "imagemap",
+        "fourth lab",
+        "fourth laboratory",
+      ],
+      MLT5: [
+        "mlt5",
+        "resume internal",
+        "internal css",
+        "internal css resume",
+        "fifth lab",
+        "fifth laboratory",
+      ],
+      MLT6: [
+        "mlt6",
+        "display property",
+        "display",
+        "sixth lab",
+        "sixth laboratory",
+      ],
+      MLT7: [
+        "mlt7",
+        "semantic css",
+        "semantic",
+        "seventh lab",
+        "seventh laboratory",
+      ],
+      MLT8: ["mlt8", "css layout", "layout", "eighth lab", "eighth laboratory"],
+    };
+
+    let mltId = null;
+    for (const [id, keywords] of Object.entries(mltKeywords)) {
+      if (keywords.some((kw) => msg.includes(kw))) {
+        mltId = id;
+        break;
+      }
+    }
+
+    if (mltId) {
+      // Typing animation — only for MLT
+      removeTypingIndicator();
+      addMessage("Let me check that for you...", "ai");
+      showTypingIndicator();
+      await new Promise((r) => setTimeout(r, 5000));
       let mltCode = null;
 
       try {
@@ -149,6 +218,7 @@ const sendMessage = async () => {
 
     // 2. Predefined Rule-Based Responses
     let responseText = "Failed to ask. Ask more question!";
+    let responseType = "text";
 
     if (msg.includes("name") || msg.includes("who are you")) {
       responseText = "I'm Charles Yumul David's personal portfolio assistant!";
@@ -194,6 +264,8 @@ const sendMessage = async () => {
       msg.includes("relationship")
     ) {
       responseText = "Charles is currently taken.";
+    } else if (msg.includes("who") || msg.includes("with")) {
+      responseText = "with Ashley Reyes.";
     } else if (
       msg.includes("birthdate") ||
       msg.includes("birthday") ||
@@ -202,16 +274,69 @@ const sendMessage = async () => {
       responseText = "Charles was born on January 7, 2007.";
     } else if (msg.includes("age") || msg.includes("how old")) {
       responseText = "Charles is 19 years old.";
+    } else if (
+      msg.includes("picture") ||
+      msg.includes("photo") ||
+      msg.includes("pic") ||
+      msg.includes("face") ||
+      msg.includes("look like") ||
+      msg.includes("image of")
+    ) {
+      responseText = `<strong>Here is Charles!</strong><br><img src="images/profile.jpeg" alt="Charles Yumul David" style="width:100%; max-width:200px; border-radius:12px; margin-top:8px; display:block;" />`;
+      responseType = "html";
+    } else if (
+      msg.includes("jm") ||
+      msg.includes("nerison") ||
+      msg.includes("john michael")
+    ) {
+      responseText = `<strong>Eto si JM! 😄</strong><br><img src="images/jm.jpg" alt="JM Nerison" style="width:100%; max-width:200px; border-radius:12px; margin-top:8px; display:block;" />`;
+      responseType = "html";
     } else if (msg.includes("hello") || msg.includes("hi ") || msg === "hi") {
       responseText =
         "Hello! Ask me about Charles' skills, education, or to fetch raw code for his Midterm (MLT1 to MLT8) projects!";
     } else if (msg.includes("thank")) {
       responseText =
         "You're very welcome! Let me know if you want the code for any of the MLT projects.";
+    } else if (msg.includes("facebook") || msg.match(/\bfb\b/)) {
+      responseText = `<strong>Connect on Facebook:</strong><br><a href="https://www.facebook.com/chxrlz.d4vd" target="_blank" style="display:inline-block; border: 1px solid #64ffda; padding: 5px 10px; border-radius: 5px; margin-top: 5px; text-decoration:none; color:#64ffda;"><img src="images/facebook.png" style="width:20px; vertical-align:middle; margin-right:5px;"> Facebook Profile</a>`;
+      responseType = "html";
+    } else if (msg.includes("instagram") || msg.match(/\big\b/)) {
+      responseText = `<strong>Connect on Instagram:</strong><br><a href="https://www.instagram.com/chx.d4vd" target="_blank" style="display:inline-block; border: 1px solid #64ffda; padding: 5px 10px; border-radius: 5px; margin-top: 5px; text-decoration:none; color:#64ffda;"><img src="images/instagram.png" style="width:20px; vertical-align:middle; margin-right:5px;"> Instagram Profile</a>`;
+      responseType = "html";
+    } else if (msg.includes("tiktok")) {
+      responseText = `<strong>Connect on TikTok:</strong><br><a href="https://www.tiktok.com/@chxrlzd4vd?lang=en" target="_blank" style="display:inline-block; border: 1px solid #64ffda; padding: 5px 10px; border-radius: 5px; margin-top: 5px; text-decoration:none; color:#64ffda;"><img src="images/tiktok.png" style="width:20px; vertical-align:middle; margin-right:5px;"> TikTok Profile</a>`;
+      responseType = "html";
+    } else if (msg.includes("telegram") || msg.match(/\btg\b/)) {
+      responseText = `<strong>Connect on Telegram:</strong><br><a href="https://t.me/ch777x2" target="_blank" style="display:inline-block; border: 1px solid #64ffda; padding: 5px 10px; border-radius: 5px; margin-top: 5px; text-decoration:none; color:#64ffda;"><img src="images/telegram.png" style="width:20px; vertical-align:middle; margin-right:5px;"> Telegram Profile</a>`;
+      responseType = "html";
+    } else if (
+      msg.includes("social") ||
+      msg.includes("connect") ||
+      msg.includes("media") ||
+      msg.includes("link")
+    ) {
+      responseText = `<strong style="display:block; margin-bottom:8px;">Charles' Social Media Profiles:</strong>
+        <div style="display:flex; gap:15px; align-items:center;">
+          <a href="https://www.facebook.com/chxrlz.d4vd" target="_blank" title="Facebook"><img src="images/facebook.png" style="width:30px; border-radius:4px;" alt="Facebook" /></a>
+          <a href="https://www.instagram.com/chx.d4vd" target="_blank" title="Instagram"><img src="images/instagram.png" style="width:30px; border-radius:4px;" alt="Instagram" /></a>
+          <a href="https://www.tiktok.com/@chxrlzd4vd?lang=en" target="_blank" title="TikTok"><img src="images/tiktok.png" style="width:30px; border-radius:4px;" alt="TikTok" /></a>
+          <a href="https://t.me/ch777x2" target="_blank" title="Telegram"><img src="images/telegram.png" style="width:30px; border-radius:4px;" alt="Telegram" /></a>
+        </div>`;
+      responseType = "html";
+    } else if (
+      msg.includes("music") ||
+      msg.includes("song") ||
+      msg.includes("spotify") ||
+      msg.includes("playlist")
+    ) {
+      // Charles' personal Spotify playlist
+      responseText = `<strong style="display:block; margin-bottom:8px;">Here is some music for you! 🎵</strong>
+        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/4zR7BFd7KUDm2UpHunWw5k?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`;
+      responseType = "html";
     }
 
     removeTypingIndicator();
-    addMessage(responseText, "ai");
+    addMessage(responseText, "ai", responseType);
   } catch (error) {
     removeTypingIndicator();
     addMessage("Sorry, an error occurred in the chat logic.", "ai");
