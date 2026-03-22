@@ -264,8 +264,6 @@ const sendMessage = async () => {
       msg.includes("relationship")
     ) {
       responseText = "Charles is currently taken.";
-    } else if (msg.includes("who") || msg.includes("with")) {
-      responseText = "with Ashley Reyes.";
     } else if (
       msg.includes("birthdate") ||
       msg.includes("birthday") ||
