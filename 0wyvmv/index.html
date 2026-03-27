@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WYBMV?</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- hidden audio player – auto-play after click (muted autoplay policy bypass) -->
+    <audio id="bg-music" loop preload="auto">
+      <source src="Download.mp3" type="audio/mp3" />
+      <!-- fallback romantic tune – amielsol2 "you make it right" chorus only -->
+      Your browser does not support the audio element.
+    </audio>
+
+    <!-- main invitation card -->
+    <div class="invitation-card" id="inviteCard">
+      <!-- ========= STEP 1 : THREE PHOTOS + CLICK HERE ========= -->
+      <div id="stepOne" class="step-one">
+        <div class="photo-gallery">
+          <!-- 3 romantic / couple stock photos (valentine themed) -->
+          <img class="photo-item" src="photo1.jpg" alt="photo1" />
+          <img class="photo-item" src="photo2.jpg" alt="photo2" />
+          <img class="photo-item" src="photo3.jpg" alt="photo3" />
+        </div>
+        <div class="click-area">
+          <button class="btn-click" id="clickHereBtn">CLICK HERE</button>
+          <p
+            style="
+              margin-top: 25px;
+              color: #a1354a;
+              font-size: 1.3rem;
+              font-style: italic;
+            "
+          >
+            — hi bae —
+          </p>
+        </div>
+      </div>
+
+      <!-- ========= STEP 2 : WILL YOU BE MY VALENTINE? MUSIC + YES/NO ========= -->
+      <div id="stepTwo" class="step-two valentine-question">
+        <!-- music indicator (top) -->
+        <div class="music-indicator">
+          <span style="font-size: 1.7rem; margin-right: 8px">🎵</span>
+          <i>you make it right ♪</i>
+          <span style="font-size: 1.7rem; margin-left: 8px">🎶</span>
+        </div>
+
+        <!-- big question -->
+        <div class="big-question">Will you be my Valentine? 💌</div>
+
+        <!-- YES / NO button pair with runaway NO -->
+        <div class="button-pair" id="buttonPair">
+          <button class="btn-yes" id="yesBtn">💖 YES</button>
+          <button class="btn-no" id="noBtn">💔 NO</button>
+        </div>
+        <p style="margin-top: 35px; color: #a04b5a; font-size: 1.1rem">
+          opss where are you going NO ...
+        </p>
+      </div>
+    </div>
+
+    <!-- ========= POP-UP (OUR PICTURE) when YES clicked ========= -->
+    <div id="popupBox" class="popup-overlay">
+      <div class="popup-content">
+        <!--  our picture — REPLACE WITH YOUR COUPLE PHOTO  -->
+        <img src="vphoto4.jpg" alt="our beautiful picture together" />
+        <h2>See you tom baby!</h2>
+        <p style="font-size: 1.7rem; color: #b34167">Happy Valentine!</p>
+        <button
+          id="closePopupBtn"
+          style="
+            margin-top: 20px;
+            padding: 10px 25px;
+            background: #ff6b8b;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            cursor: pointer;
+          "
+        >
+          Close
+        </button>
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        "use strict";
+
+        // ----- ELEMENTS ------
+        const stepOne = document.getElementById("stepOne");
+        const stepTwo = document.getElementById("stepTwo");
+        const clickBtn = document.getElementById("clickHereBtn");
+        const audio = document.getElementById("bg-music");
+
+        const yesBtn = document.getElementById("yesBtn");
+        const noBtn = document.getElementById("noBtn");
+        const buttonPair = document.getElementById("buttonPair");
+        const popup = document.getElementById("popupBox");
+        const closePopup = document.getElementById("closePopupBtn");
+
+        // ----- INIT: make sure step2 hidden, popup hidden -----
+        stepOne.style.display = "block";
+        stepTwo.style.display = "none";
+        popup.style.display = "none";
+
+        // ----- 1️⃣ CLICK HERE -> show step2, START MUSIC, hide step1 -----
+        clickBtn.addEventListener("click", function (e) {
+          // switch view
+          stepOne.style.display = "none";
+          stepTwo.style.display = "block";
+
+          // play music (with user interaction, bypass autoplay restrictions)
+          audio.volume = 0.4; // comfortable level
+
+          // Force load and play
+          audio.load();
+          let playPromise = audio.play();
+
+          if (playPromise !== undefined) {
+            playPromise.catch((err) => {
+              console.log("Play failed, trying again:", err);
+              // if fails, try again
+              setTimeout(() => {
+                audio.play().catch((e) => console.log("Retry failed:", e));
+              }, 100);
+            });
+          }
+        });
+
+        // ----- 2️⃣ RUNAWAY NO BUTTON (move to another place) -----
+        function moveNoButton() {
+          // get container dimensions and button dimensions
+          const container = buttonPair;
+          const no = noBtn;
+          const containerRect = container.getBoundingClientRect();
+          const noRect = no.getBoundingClientRect();
+
+          // max positions so button stays inside container with some margin
+          const maxX = containerRect.width - noRect.width - 10;
+          const maxY = containerRect.height - noRect.height - 10;
+
+          // generate random position within container
+          let randomX = Math.floor(Math.random() * maxX);
+          let randomY = Math.floor(Math.random() * maxY);
+
+          // but keep NO inside relative container – use absolute positioning inside 'button-pair'
+          // first, set container to relative if not already (it is by default? we enforce)
+          container.style.position = "relative";
+          no.style.position = "absolute";
+          // ensure button stays inside padding area, no overflow
+          randomX = Math.max(
+            5,
+            Math.min(randomX, containerRect.width - noRect.width - 5),
+          );
+          randomY = Math.max(
+            5,
+            Math.min(randomY, containerRect.height - noRect.height - 5),
+          );
+
+          no.style.left = randomX + "px";
+          no.style.top = randomY + "px";
+
+          // also detach standard flow
+          no.style.transform = "none"; // remove any default shift
+        }
+
+        // ---- event listener for NO: move away, also shake? ----
+        noBtn.addEventListener("click", function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          moveNoButton();
+        });
+
+        // also move NO on hover (extra mischievous)
+        noBtn.addEventListener("mouseenter", function (e) {
+          moveNoButton();
+        });
+
+        // make sure YES stays in normal flow, not affected
+        yesBtn.style.position = "relative"; // keep static
+
+        // ----- 3️⃣ YES CLICKED : show OUR PICTURE pop-up  -----
+        yesBtn.addEventListener("click", function () {
+          popup.style.display = "flex"; // pop-up appears
+        });
+
+        // close pop-up
+        if (closePopup) {
+          closePopup.addEventListener("click", function () {
+            popup.style.display = "none";
+          });
+        }
+
+        // click outside popup content to close? but we have close btn, plus we can add overlay click
+        popup.addEventListener("click", function (e) {
+          if (e.target === popup) {
+            popup.style.display = "none";
+          }
+        });
+
+        // ----- Reset no button style initially (default positioning) -----
+        window.addEventListener("load", function () {
+          // set NO button to relative in the beginning (it will be absolute only after moving)
+          noBtn.style.position = "relative";
+          noBtn.style.left = "auto";
+          noBtn.style.top = "auto";
+          // ensure button-pair is relative for runaway
+          buttonPair.style.position = "relative";
+        });
+
+        // make sure when step2 becomes visible, NO is not stuck outside
+        // reset to normal when coming from step1 (but after click, no is relative)
+        clickBtn.addEventListener("click", function () {
+          // reset NO to original position (relative and no left/top)
+          noBtn.style.position = "relative";
+          noBtn.style.left = "auto";
+          noBtn.style.top = "auto";
+        });
+
+        // also if user clicks NO after reset, it moves – good
+
+        // one more thing: if container changes size, we adjust move function accordingly
+        window.addEventListener("resize", function () {
+          // optional: reset no button to relative after resize to avoid odd positions
+          // but we prefer to keep it wherever it was? For UX, we can reset to relative
+          if (stepTwo.style.display === "block") {
+            // do not force reset, but avoid button being outside container
+            // simple: if NO has absolute, check if out of bounds
+            if (noBtn.style.position === "absolute") {
+              const container = buttonPair;
+              const no = noBtn;
+              const containerRect = container.getBoundingClientRect();
+              const noRect = no.getBoundingClientRect();
+              // if out of horizontal or vertical, bring back inside gently
+              if (
+                noRect.left < containerRect.left ||
+                noRect.right > containerRect.right ||
+                noRect.top < containerRect.top ||
+                noRect.bottom > containerRect.bottom
+              ) {
+                // reset to relative to fix
+                noBtn.style.position = "relative";
+                noBtn.style.left = "auto";
+                noBtn.style.top = "auto";
+              }
+            }
+          }
+        });
+
+        // because the photos are from pexels (free valentine style) — all good.
+        // fallback if images fail: show subtle message, but fine.
+
+        // extra: ensure music volume not too loud
+        audio.volume = 0.35;
+
+        // Preload audio
+        audio.load();
+      })();
+    </script>
+
+    <!-- tiny floating decoration (css hearts) -->
+    <div
+      style="
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        font-size: 45px;
+        opacity: 0.1;
+        rotate: -5deg;
+      "
+    >
+      ❤️
+    </div>
+    <div
+      style="
+        position: fixed;
+        bottom: 10px;
+        right: 25px;
+        font-size: 75px;
+        opacity: 0.1;
+        rotate: 20deg;
+      "
+    >
+      ❤️❤️
+    </div>
+    <!-- message for valentine -->
+  </body>
+</html>

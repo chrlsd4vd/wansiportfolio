@@ -1,0 +1,670 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML & CSS · notes (printable PDF)</title>
+    <style>
+      /* print-optimized, clean, readable */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Segoe UI", "Roboto", "Helvetica", Arial, sans-serif;
+        line-height: 1.5;
+        background: #ffffff;
+        padding: 2rem 1.5rem;
+        max-width: 1100px;
+        margin: 0 auto;
+        color: #1e2b3a;
+      }
+      /* main card effect (subtle) */
+      .paper {
+        background: white;
+        border-radius: 18px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        padding: 2.5rem 2.8rem;
+        border: 1px solid #e2e8f0;
+      }
+      @media print {
+        body {
+          background: white;
+          padding: 0.2in;
+        }
+        .paper {
+          box-shadow: none;
+          border-radius: 0;
+          padding: 0;
+          border: none;
+        }
+        .print-btn {
+          display: none;
+        }
+        h1,
+        h2,
+        h3,
+        h4 {
+          page-break-after: avoid;
+        }
+        pre,
+        blockquote,
+        table,
+        .demo-box {
+          page-break-inside: avoid;
+        }
+        /* lighten backgrounds for print */
+        pre,
+        .note,
+        .def-badge,
+        .demo-box,
+        th {
+          background: #f5f5f5 !important;
+          color: black !important;
+          border: 1px solid #ccc !important;
+        }
+        th {
+          background: #e0e0e0 !important;
+        }
+        dialog,
+        .dialog-btn {
+          display: none;
+        }
+      }
+
+      h1 {
+        font-size: 2.6rem;
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+        border-bottom: 2px solid #d0ddee;
+        padding-bottom: 0.5rem;
+        color: #0a2540;
+        letter-spacing: -0.02em;
+      }
+      .subhead {
+        font-size: 1.1rem;
+        color: #3a5470;
+        margin-bottom: 2rem;
+        font-style: italic;
+      }
+      h2 {
+        font-size: 2rem;
+        margin: 2rem 0 1rem 0;
+        font-weight: 600;
+        color: #0f2b42;
+        border-left: 6px solid #4f7aa6;
+        padding-left: 1.2rem;
+      }
+      h3 {
+        font-size: 1.5rem;
+        margin: 1.8rem 0 0.8rem 0;
+        font-weight: 500;
+        color: #1a405e;
+      }
+      h4 {
+        font-size: 1.25rem;
+        margin: 1.5rem 0 0.3rem 0;
+        font-weight: 500;
+        color: #234b6e;
+      }
+      p,
+      li {
+        margin-bottom: 0.6rem;
+        color: #1e2f3d;
+      }
+      .note {
+        background: #eaf1fa;
+        padding: 0.4rem 1rem;
+        border-radius: 30px;
+        display: inline-block;
+        font-size: 0.95rem;
+        border-left: 3px solid #4f7aa6;
+        color: #0b2b40;
+      }
+      pre {
+        background: #f7faff;
+        color: #1e2b3a;
+        padding: 1.2rem 1.5rem;
+        border-radius: 16px;
+        overflow-x: auto;
+        font-family: "JetBrains Mono", "Fira Code", "Cascadia Code", monospace;
+        font-size: 0.95rem;
+        margin: 1.2rem 0;
+        border: 1px solid #cfddee;
+        box-shadow: none;
+      }
+      code {
+        font-family: "JetBrains Mono", "Fira Code", monospace;
+        background: #e9eef4;
+        padding: 0.2rem 0.5rem;
+        border-radius: 8px;
+        font-size: 0.95rem;
+        color: #b31e5c;
+      }
+      pre code {
+        background: transparent;
+        color: inherit;
+        padding: 0;
+        border-radius: 0;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.2rem 0 1.8rem 0;
+        font-size: 0.98rem;
+        background: white;
+        border-radius: 16px;
+        overflow: hidden;
+        border: 1px solid #cbd5e1;
+      }
+      th {
+        background: #e6edf6;
+        color: #0f283d;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        font-size: 0.9rem;
+        padding: 0.8rem 1rem;
+        border-bottom: 2px solid #a6c0da;
+      }
+      td {
+        padding: 0.9rem 1rem;
+        border-bottom: 1px solid #dce5f0;
+        vertical-align: top;
+      }
+      tr:last-child td {
+        border-bottom: none;
+      }
+      ul,
+      ol {
+        margin: 0.8rem 0 1.2rem 1.8rem;
+      }
+      li {
+        margin-bottom: 0.25rem;
+      }
+      hr {
+        margin: 2rem 0;
+        border: none;
+        border-top: 2px dashed #b8cde0;
+      }
+      .print-btn {
+        background: #1f3b54;
+        color: white;
+        border: none;
+        font-size: 1.2rem;
+        padding: 0.8rem 2rem;
+        border-radius: 50px;
+        cursor: pointer;
+        font-weight: 500;
+        margin-bottom: 2rem;
+        box-shadow: 0 2px 6px rgba(0, 40, 70, 0.2);
+        transition: background 0.2s;
+        border: 1px solid #15344d;
+      }
+      .print-btn:hover {
+        background: #0b2a40;
+      }
+      .def-badge {
+        background: #e2ebf5;
+        border-radius: 30px;
+        padding: 0.2rem 1rem;
+        font-weight: 600;
+        display: inline-block;
+        margin-right: 0.6rem;
+        color: #0b2f4a;
+        border: 1px solid #b9d0e7;
+      }
+      footer {
+        margin-top: 3rem;
+        font-size: 0.9rem;
+        text-align: center;
+        color: #5b748b;
+        border-top: 1px solid #cbdae6;
+        padding-top: 1.5rem;
+      }
+
+      /* demo boxes for pseudo-elements */
+      .demo-box {
+        background: #f9fcff;
+        border: 1px solid #bed4ec;
+        border-radius: 20px;
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+      }
+      .demo-box p {
+        background: #ffffff;
+        padding: 0.5rem 1rem;
+        border-radius: 30px;
+        border: 1px solid #e2eaf3;
+      }
+      /* before example */
+      .demo-before p::before {
+        content: "📌 Note: ";
+        color: #1d7a9c;
+        font-weight: 600;
+      }
+      /* after example */
+      .demo-after p::after {
+        content: " 🔚";
+        color: #b34a6c;
+        font-weight: 500;
+      }
+      /* both combined for third paragraph */
+      .demo-both p::before {
+        content: "⭐ ";
+        color: #b3681a;
+      }
+      .demo-both p::after {
+        content: " ⭐";
+        color: #b3681a;
+      }
+
+      /* backdrop demo (only interactive, stays subtle) */
+      dialog {
+        padding: 2rem;
+        border: none;
+        border-radius: 24px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        max-width: 400px;
+        text-align: center;
+        font-size: 1.2rem;
+        background: white;
+      }
+      dialog::backdrop {
+        background: linear-gradient(145deg, #536b86, #2c4058);
+        opacity: 0.9;
+        backdrop-filter: blur(4px);
+      }
+      .dialog-btn {
+        background: #2c4058;
+        color: white;
+        border: none;
+        padding: 0.8rem 2rem;
+        border-radius: 40px;
+        font-size: 1.1rem;
+        cursor: pointer;
+        margin-top: 0.5rem;
+      }
+      .dialog-btn:hover {
+        background: #1e3145;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="paper">
+      <div
+        style="
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          flex-wrap: wrap;
+        "
+      >
+        <button class="print-btn" onclick="window.print()">
+          ⬇️ Print / Save as PDF
+        </button>
+      </div>
+      <!-- 1️⃣ HTML -->
+      <h2>HTML (HyperText Markup Language)</h2>
+      <h3>Definition</h3>
+      <p>
+        HTML is the standard language used to create and structure web pages. It
+        uses tags to organize content such as text, images, and links.
+      </p>
+      <p>
+        <span class="def-badge">📁 File extensions</span> <code>.html</code> ,
+        <code>.htm</code>
+      </p>
+
+      <h3>Basic HTML Structure</h3>
+      <p>Every HTML document follows this structure:</p>
+      <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Page Title&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+      <p>Explanation of each tag:</p>
+      <table>
+        <tr>
+          <th>Tag</th>
+          <th>Purpose</th>
+        </tr>
+        <tr>
+          <td><code>&lt;!DOCTYPE html&gt;</code></td>
+          <td>Declares the document as HTML5</td>
+        </tr>
+        <tr>
+          <td><code>&lt;html&gt;</code></td>
+          <td>Root element of the webpage</td>
+        </tr>
+        <tr>
+          <td><code>&lt;head&gt;</code></td>
+          <td>Contains metadata (title, links, styles, scripts)</td>
+        </tr>
+        <tr>
+          <td><code>&lt;title&gt;</code></td>
+          <td>Title shown in the browser tab</td>
+        </tr>
+        <tr>
+          <td><code>&lt;body&gt;</code></td>
+          <td>Contains the visible content of the webpage</td>
+        </tr>
+      </table>
+
+      <h3>Common HTML Elements</h3>
+      <h4>Headings</h4>
+      <p>HTML provides 6 heading levels.</p>
+      <pre><code>&lt;h1&gt;Heading&lt;/h1&gt;
+&lt;h2&gt;Heading&lt;/h2&gt;
+&lt;h3&gt;Heading&lt;/h3&gt;
+&lt;h4&gt;Heading&lt;/h4&gt;
+&lt;h5&gt;Heading&lt;/h5&gt;
+&lt;h6&gt;Heading&lt;/h6&gt;</code></pre>
+      <p>📌 <code>h1</code> = largest &nbsp; 📌 <code>h6</code> = smallest</p>
+
+      <h4>Paragraph</h4>
+      <pre><code>&lt;p&gt;This is a paragraph.&lt;/p&gt;</code></pre>
+      <p>Used to display blocks of text.</p>
+
+      <h4>Link</h4>
+      <pre><code>&lt;a href="https://example.com"&gt;Visit Website&lt;/a&gt;</code></pre>
+      <p>Attributes: <code>href</code> = destination URL.</p>
+
+      <h4>Image</h4>
+      <pre><code>&lt;img src="image.jpg" alt="Description"&gt;</code></pre>
+      <p>
+        <code>src</code> = image source, <code>alt</code> = alternative text.
+      </p>
+
+      <h4>Line Break</h4>
+      <pre><code>&lt;br&gt;</code></pre>
+      <p>Used to move text to the next line.</p>
+
+      <h3>HTML Attributes</h3>
+      <p>Attributes provide additional information about elements. Example:</p>
+      <pre><code>&lt;img src="cat.jpg" alt="Cute cat"&gt;</code></pre>
+      <p>Common attributes:</p>
+      <table>
+        <tr>
+          <th>Attribute</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td><code>id</code></td>
+          <td>Unique identifier for an element</td>
+        </tr>
+        <tr>
+          <td><code>class</code></td>
+          <td>Used to group elements for styling</td>
+        </tr>
+        <tr>
+          <td><code>src</code></td>
+          <td>Specifies image source</td>
+        </tr>
+        <tr>
+          <td><code>href</code></td>
+          <td>Specifies link destination</td>
+        </tr>
+        <tr>
+          <td><code>alt</code></td>
+          <td>Alternative text for images</td>
+        </tr>
+        <tr>
+          <td><code>type</code></td>
+          <td>Defines input type</td>
+        </tr>
+      </table>
+
+      <h3>HTML Forms – Input Types</h3>
+      <p>
+        Forms collect user input. Example:
+        <code>&lt;input type="text"&gt;</code>
+      </p>
+      <p>Common input types:</p>
+      <table>
+        <tr>
+          <th>Input type</th>
+          <th>Purpose</th>
+        </tr>
+        <tr>
+          <td><code>text</code></td>
+          <td>Text input</td>
+        </tr>
+        <tr>
+          <td><code>email</code></td>
+          <td>Email address</td>
+        </tr>
+        <tr>
+          <td><code>password</code></td>
+          <td>Hidden password input</td>
+        </tr>
+        <tr>
+          <td><code>number</code></td>
+          <td>Numeric input</td>
+        </tr>
+        <tr>
+          <td><code>checkbox</code></td>
+          <td>Multiple selection</td>
+        </tr>
+        <tr>
+          <td><code>radio</code></td>
+          <td>Single selection</td>
+        </tr>
+        <tr>
+          <td><code>submit</code></td>
+          <td>Submit button</td>
+        </tr>
+      </table>
+
+      <h3>HTML Lists</h3>
+      <h4>Unordered List (bullet)</h4>
+      <pre><code>&lt;ul&gt;
+  &lt;li&gt;Item 1&lt;/li&gt;
+  &lt;li&gt;Item 2&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+      <p>📌 Displays bullet points<br />Example: • Apple • Banana • Mango</p>
+
+      <h4>Ordered List (numbered)</h4>
+      <pre><code>&lt;ol&gt;
+  &lt;li&gt;Item 1&lt;/li&gt;
+  &lt;li&gt;Item 2&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+      <p>📌 Displays numbers<br />Example: 1. Step One 2. Step Two</p>
+
+      <hr />
+
+      <!-- 7️⃣ CSS section -->
+      <h2>CSS (Cascading Style Sheets)</h2>
+      <h3>Definition</h3>
+      <p>
+        CSS is used to design and style web pages. It controls: Colors, Layout,
+        Fonts, Spacing, Positioning.
+      </p>
+
+      <h3>Ways to Apply CSS</h3>
+      <h4>1. Inline CSS</h4>
+      <pre><code>&lt;p style="color:red;"&gt;Hello&lt;/p&gt;</code></pre>
+      <p>📌 Applies style to one element only.</p>
+
+      <h4>2. Internal CSS</h4>
+      <pre><code>&lt;style&gt;
+p { color: red; }
+&lt;/style&gt;</code></pre>
+      <p>
+        📌 Used for single webpage styling (inside <code>&lt;head&gt;</code>).
+      </p>
+
+      <h4>3. External CSS</h4>
+      <pre><code>&lt;link rel="stylesheet" href="style.css"&gt;</code></pre>
+      <p>Example in <code>style.css</code>:</p>
+      <pre><code>p { color: red; }</code></pre>
+      <p>📌 Best practice for large websites.</p>
+
+      <h3>CSS Syntax</h3>
+      <pre><code>selector {
+  property: value;
+}</code></pre>
+      <p>Example:</p>
+      <pre><code>p {
+  color: blue;
+}</code></pre>
+      <table>
+        <tr>
+          <th>Part</th>
+          <th>Meaning</th>
+        </tr>
+        <tr>
+          <td>selector</td>
+          <td>HTML element to style</td>
+        </tr>
+        <tr>
+          <td>property</td>
+          <td>Style type</td>
+        </tr>
+        <tr>
+          <td>value</td>
+          <td>Style value</td>
+        </tr>
+      </table>
+
+      <h3>CSS Selectors</h3>
+      <p>Selectors target HTML elements.</p>
+      <h4>Element selector</h4>
+      <pre><code>p { color: red; }</code></pre>
+      <h4>Class selector <code>.box</code></h4>
+      <pre><code>.box { background: blue; }</code></pre>
+      <p>HTML: <code>&lt;div class="box"&gt;&lt;/div&gt;</code></p>
+
+      <h4>ID selector <code>#header</code></h4>
+      <pre><code>#header { background: black; }</code></pre>
+      <p>
+        HTML: <code>&lt;div id="header"&gt;&lt;/div&gt;</code>
+        <span class="note">📌 ID must be unique</span>
+      </p>
+
+      <h4>Group selector</h4>
+      <pre><code>h1, h2, p { color: black; }</code></pre>
+
+      <h3>Advanced Selectors</h3>
+      <h4>Descendant selector</h4>
+      <pre><code>div p { color: blue; }</code></pre>
+      <p>
+        Meaning: all <code>&lt;p&gt;</code> inside <code>&lt;div&gt;</code>.
+      </p>
+
+      <h4>Child selector</h4>
+      <pre><code>div > p { color: red; }</code></pre>
+      <p>Selects direct child elements only.</p>
+
+      <h4>Adjacent sibling selector</h4>
+      <pre><code>h1 + p { color: green; }</code></pre>
+      <p>
+        Selects the first <code>&lt;p&gt;</code> after <code>&lt;h1&gt;</code>.
+      </p>
+
+      <h4>General sibling selector</h4>
+      <pre><code>h1 ~ p { color: purple; }</code></pre>
+      <p>Selects all <code>&lt;p&gt;</code> after <code>&lt;h1&gt;</code>.</p>
+
+      <h3>Pseudo Classes</h3>
+      <p>Used for special states. Example:</p>
+      <pre><code>a:hover { color: red; }</code></pre>
+      <table>
+        <tr>
+          <th>Pseudo‑class</th>
+          <th>Meaning</th>
+        </tr>
+        <tr>
+          <td><code>:hover</code></td>
+          <td>When mouse is over element</td>
+        </tr>
+        <tr>
+          <td><code>:active</code></td>
+          <td>When clicked</td>
+        </tr>
+        <tr>
+          <td><code>:focus</code></td>
+          <td>When input is selected</td>
+        </tr>
+      </table>
+
+      <!-- Pseudo Elements section -->
+      <h3>Pseudo Elements</h3>
+      <p>Style specific parts of elements. Common pseudo‑elements:</p>
+      <pre><code>p::before
+p::after
+::backdrop</code></pre>
+
+      <h4>🔹 ::before – inserts content before an element's content</h4>
+      <p><strong>Example:</strong></p>
+      <pre><code>p::before {
+  content: "Note: ";
+  color: #1d7a9c;
+  font-weight: 600;
+}</code></pre>
+      <div class="demo-box demo-before">
+        <p>This paragraph has a ::before pseudo-element.</p>
+        <p>Each paragraph in this box gets a "Note:" prefix.</p>
+      </div>
+      <p>
+        <span class="note">Output:</span> The text “Note: ” appears before every
+        paragraph inside the box above.
+      </p>
+
+      <h4>🔹 ::after – inserts content after an element's content</h4>
+      <p><strong>Example:</strong></p>
+      <pre><code>p::after {
+  content: " 🔚";
+  color: #b34a6c;
+}</code></pre>
+      <div class="demo-box demo-after">
+        <p>This paragraph has a ::after pseudo-element.</p>
+        <p>Each paragraph ends with a decorative arrow.</p>
+      </div>
+      <p>
+        <span class="note">Output:</span> A " 🔚" symbol appears after each
+        paragraph above.
+      </p>
+
+      <h4>
+        🔹 ::backdrop – styles the background behind a fullscreen element or
+        &lt;dialog&gt;
+      </h4>
+      <p><strong>Example (with a modal dialog):</strong></p>
+      <pre><code>dialog::backdrop {
+  background: linear-gradient(145deg, #4a2b7a, #2b1b4a);
+  opacity: 0.9;
+  backdrop-filter: blur(4px);
+}</code></pre>
+
+      <!-- dialog element for backdrop demo -->
+      <dialog id="demoDialog">
+        <p style="font-size: 1.5rem; margin-bottom: 1rem">✨ Hello! ✨</p>
+        <p>
+          This dialog has a custom <code>::backdrop</code> with a purple
+          gradient and blur.
+        </p>
+        <form method="dialog">
+          <button class="dialog-btn" style="margin-top: 1.5rem">Close</button>
+        </form>
+      </dialog>
+
+      <h4>Combining ::before and ::after</h4>
+      <pre><code>p::before {
+  content: "⭐ ";
+}
+p::after {
+  content: " ⭐";
+}</code></pre>
+      <div class="demo-box demo-both">
+        <p>This paragraph gets stars on both sides.</p>
+        <p>Another paragraph with before and after.</p>
+      </div>
+    </div>
+  </body>
+</html>

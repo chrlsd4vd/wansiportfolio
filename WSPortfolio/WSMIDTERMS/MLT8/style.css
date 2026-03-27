@@ -1,0 +1,591 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+p {
+  text-align: justify;
+}
+
+body.theme-1 {
+  background-color: #eaebec;
+  margin: 0;
+  padding: 40px 0;
+  width: 100%;
+  color: black;
+}
+
+.theme-1 header,
+.theme-1 main,
+.theme-1 footer {
+  width: 75%;
+  margin: 0 auto;
+  background-color: #fff;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.theme-1 header {
+  background-color: #1021a4;
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.theme-1 header h1 {
+  margin: 0;
+  font-size: 40px;
+}
+
+.theme-1 main {
+  margin-top: 0;
+  background-color: white;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.theme-1 nav {
+  width: 25%;
+  float: left;
+}
+
+.theme-1 nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.theme-1 nav li {
+  background-color: rgb(243, 240, 240);
+  padding: 10px;
+  margin-bottom: 3px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  color: black;
+  cursor: pointer;
+  text-align: left;
+  font-size: medium;
+  font-weight: normal;
+}
+
+.theme-1 nav li:hover {
+  background-color: #101aa4;
+  color: white;
+  font-weight: bold;
+}
+
+.theme-1 nav li.active {
+  background-color: #101aa4;
+  color: white;
+  font-weight: bold;
+}
+
+.theme-1 section {
+  width: 50%;
+  float: left;
+  padding: 0 20px;
+}
+
+.theme-1 section h2 {
+  font-size: xx-large;
+  color: black;
+  margin-top: unset;
+  margin-bottom: unset;
+}
+
+.theme-1 section p {
+  font-size: medium;
+}
+
+.theme-1 section a {
+  color: black;
+  text-decoration: none;
+}
+
+.theme-1 section a:hover {
+  color: #101aa4;
+}
+
+.theme-1 section h3 {
+  font-size: x-large;
+}
+
+.theme-1 aside {
+  margin-top: 15px;
+  height: 300px;
+  width: 25%;
+  float: left;
+  padding: 15px;
+  background-color: #101aa4;
+  color: white;
+  border-radius: 10px;
+}
+
+.theme-1 aside h3 {
+  font-size: 25px;
+  color: white;
+  margin-top: unset;
+  margin-bottom: unset;
+}
+
+.theme-1 footer {
+  clear: both;
+  margin-top: 0;
+  border: 1px solid gray;
+  background-color: rgb(243, 240, 240);
+  padding: 15px;
+  border-radius: 8px;
+  color: black;
+}
+
+.theme-1 footer p {
+  text-align: center;
+}
+
+@media screen and (max-width: 800px) {
+  .theme-1 nav,
+  .theme-1 section,
+  .theme-1 aside {
+    width: 100%;
+  }
+}
+
+/* =========================================
+   THEME 2: Stylesheet 2
+========================================= */
+
+body.theme-2 {
+  margin: 0;
+  padding: 40px 0;
+  width: 100%;
+  background-color: #eaebec;
+  color: #000;
+}
+
+.theme-2 header,
+.theme-2 main,
+.theme-2 footer {
+  width: 75%;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.theme-2 header {
+  color: #fff;
+  padding: 40px 20px 20px 20px;
+  background-color: #cb5343;
+  border-radius: 0;
+}
+
+.theme-2 header h1 {
+  font-size: 3.5em;
+  margin: 0 0 10px 0;
+  font-weight: bold;
+}
+
+.theme-2 header p {
+  font-size: 1.5em;
+  margin: 0;
+}
+
+.theme-2 main {
+  background-color: #fff;
+  padding: 20px;
+  overflow: hidden; /* Clear floats */
+  margin-top: 0;
+}
+
+.theme-2 nav {
+  float: right;
+  width: 180px;
+}
+
+.theme-2 nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.theme-2 nav li {
+  background-color: #cb5343;
+  color: #fff;
+  text-align: center;
+  padding: 8px;
+  margin-bottom: 12px;
+  border-radius: 20px;
+  font-size: 16px;
+  border: 2px solid #cb5343;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.theme-2 nav li:hover {
+  background-color: white;
+  color: #cb5343;
+}
+
+.theme-2 nav li.active {
+  background-color: #fff;
+  color: #cb5343;
+}
+
+.theme-2 section {
+  float: left;
+  width: calc(100% - 220px);
+  padding: 0;
+}
+
+.theme-2 section h2 {
+  color: #cb5343;
+  font-size: 1.8em;
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+.theme-2 section p {
+  line-height: 1.5;
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.theme-2 section a {
+  color: #cb5343;
+  text-decoration: none;
+}
+
+.theme-2 section a:hover {
+  color: black;
+  text-decoration: none;
+}
+
+.theme-2 aside {
+  clear: both;
+  background-color: #f2dada;
+  color: #cb5343;
+  padding: 20px;
+  margin: 30px -20px -20px -20px;
+  height: auto;
+  width: auto;
+  border-radius: 0;
+  float: none;
+}
+
+.theme-2 aside h3 {
+  font-size: 1.4em;
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #cb5343;
+}
+
+.theme-2 aside p {
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.theme-2 footer {
+  color: #fff;
+  padding: 20px 20px 40px 20px;
+  background-color: #cb5343;
+  border: none;
+  border-radius: 0;
+  margin-top: 0;
+}
+
+.theme-2 footer p {
+  font-size: 13px;
+  line-height: 1.5;
+  text-align: center;
+  margin: 0 auto;
+}
+
+/* =========================================
+   THEME 3: Stylesheet 3
+========================================= */
+
+body.theme-3 {
+  margin: 0;
+  padding: 40px 0;
+  width: 100%;
+  background-color: #eaebec; /* Light gray background */
+  color: #333;
+}
+
+.theme-3 header,
+.theme-3 main,
+.theme-3 footer {
+  width: 75%;
+  margin: 0 auto;
+  background-color: #fff;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.theme-3 header {
+  padding-top: 40px;
+  padding-bottom: 20px;
+}
+
+.theme-3 header h1 {
+  color: #3bb34b; /* Vibrant green */
+  font-size: 2.8em;
+  margin: 0 0 10px 0;
+}
+
+.theme-3 header p {
+  font-size: 1.1em;
+  margin: 0;
+}
+
+.theme-3 main {
+  overflow: hidden; /* Clear floats */
+}
+
+/* Navigation as Horizontal Menu */
+.theme-3 nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+  display: flex;
+  gap: 8px; /* Spaces between horizontal pills */
+}
+
+.theme-3 nav li {
+  background-color: #5f6362;
+  color: #fff;
+  padding: 10px 0;
+  flex: 1; /* Make equal width */
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 0; /* Square edges */
+  font-size: 15px;
+}
+
+.theme-3 nav li:hover {
+  background-color: #3bb34b;
+}
+
+.theme-3 nav li.active {
+  background-color: #3bb34b;
+}
+
+.theme-3 section {
+  margin-bottom: 25px;
+}
+
+.theme-3 section h2 {
+  color: #3bb34b;
+  font-size: 1.8em;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.theme-3 section p {
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+.theme-3 section a {
+  color: #000;
+  text-decoration: none;
+}
+
+.theme-3 section a:hover {
+  text-decoration: none;
+  color: #3bb34b;
+}
+
+.theme-3 aside {
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  padding: 15px 20px;
+  margin-bottom: 25px;
+}
+
+.theme-3 aside h3 {
+  color: #3bb34b;
+  font-size: 1.3em;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.theme-3 aside p {
+  margin: 0;
+  font-size: 0.9em;
+  line-height: 1.5;
+}
+
+.theme-3 footer {
+  padding-top: 15px;
+  padding-bottom: 40px;
+  border-top: none;
+}
+
+.theme-3 footer p {
+  font-size: 0.85em;
+  line-height: 1.5;
+  text-align: center;
+  margin: 0;
+}
+
+/* =========================================
+   THEME 4: Stylesheet 4
+========================================= */
+
+body.theme-4 {
+  margin: 0;
+  padding: 40px 0;
+  width: 100%;
+  background-color: #eaebec;
+  color: #6edb3b;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.theme-4 header,
+.theme-4 main,
+.theme-4 footer {
+  width: 75%;
+  margin: 0 auto;
+  background-color: #0b0b0b;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.theme-4 header {
+  padding-top: 40px;
+  margin-bottom: 0;
+}
+
+.theme-4 header h1 {
+  font-weight: bold;
+  font-size: 2.2em;
+  margin: 0 0 10px 0;
+}
+
+.theme-4 header p {
+  font-size: 1.1em;
+  margin: 0;
+}
+
+.theme-4 main {
+  display: grid;
+  grid-template-areas:
+    "nav aside"
+    "section section";
+  grid-template-columns: 1fr 340px;
+  gap: 30px;
+}
+
+.theme-4 nav {
+  grid-area: nav;
+}
+
+.theme-4 nav ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin: 0;
+}
+
+.theme-4 nav li {
+  padding: 5px 0;
+  color: #6edb3b;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  border-radius: 0;
+  font-weight: normal;
+  font-size: 1.1em;
+}
+
+.theme-4 nav li:hover {
+  color: white;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+.theme-4 nav li.active {
+  color: #fff;
+  font-weight: bold;
+}
+
+.theme-4 aside {
+  grid-area: aside;
+  border: 1px solid #fff;
+  padding: 20px;
+  background-color: transparent;
+  width: auto;
+  float: none;
+  border-radius: 4px;
+}
+
+.theme-4 aside h3 {
+  color: #fff;
+  margin-top: 0;
+  font-size: 1.1em;
+  margin-bottom: 15px;
+}
+
+.theme-4 aside p {
+  color: #fff;
+  margin: 0;
+  line-height: 1.6;
+  font-size: 0.9em;
+}
+
+.theme-4 section {
+  grid-area: section;
+  width: 100%;
+  float: none;
+  padding: 0;
+}
+
+.theme-4 section h2 {
+  font-size: 2em;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.theme-4 section p {
+  line-height: 1.6;
+  margin-bottom: 20px;
+  font-size: 1.05em;
+}
+
+.theme-4 section a {
+  color: #6edb3b;
+  text-decoration: none;
+}
+
+.theme-4 section a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+.theme-4 footer {
+  border: 1px solid #fff;
+  padding: 20px;
+  color: #fff;
+  margin-top: 0;
+  background-color: #0b0b0b;
+  border-radius: 4px;
+}
+
+.theme-4 footer p {
+  line-height: 1.5;
+  text-align: left;
+  margin: 0;
+  font-size: 0.85em;
+}
+
+@media screen and (max-width: 800px) {
+  .theme-4 main {
+    grid-template-areas:
+      "nav"
+      "aside"
+      "section";
+    grid-template-columns: 1fr;
+  }
+}
