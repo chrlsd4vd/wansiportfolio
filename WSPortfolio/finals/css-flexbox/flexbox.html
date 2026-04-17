@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Flexbox</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background: #fff;
+      }
+
+      .part1 {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .flex-12a {
+        display: flex;
+      }
+      .flex-12a .box:nth-child(1) {
+        width: 200px;
+        height: 30px;
+        background-color: #f4a7b9;
+      }
+      .flex-12a .box:nth-child(2) {
+        width: 75px;
+        height: 30px;
+        background-color: #e090a3;
+      }
+
+      .flex-12b {
+        display: flex;
+      }
+      .flex-12b .box:nth-child(1) {
+        width: 50px;
+        height: 30px;
+        background-color: #a3dba5;
+      }
+      .flex-12b .box:nth-child(2) {
+        flex: 1;
+        height: 30px;
+        background-color: #c8e6c9;
+      }
+      .flex-12b .box:nth-child(3) {
+        width: 75px;
+        height: 30px;
+        background-color: #a3dba5;
+      }
+
+      .flex-12c {
+        display: flex;
+        justify-content: space-between;
+      }
+      .flex-12c .box {
+        width: 60px;
+        height: 30px;
+        background-color: #c8e6c9;
+      }
+
+      .flex-12d {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 50px;
+        border: 2px solid gray;
+      }
+      .flex-12d .box {
+        width: 60px;
+        height: 30px;
+        background-color: #c8e6c9;
+      }
+
+      .part2 {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        margin-top: 40px;
+      }
+
+      .part2 header {
+        background-color: #f5f5dc;
+        border-bottom: 10px solid #c8b400;
+        flex: 0 0 120px;
+      }
+
+      .part2 .main-content {
+        display: flex;
+        flex: 1;
+      }
+
+      .part2 .left-nav {
+        background-color: #4caf50;
+        border-right: 10px solid #c8b400;
+        width: 30%;
+      }
+
+      .part2 .right-nav {
+        background-color: #4caf50;
+        flex: 1;
+      }
+
+      .part2 footer {
+        background-color: #f5f5dc;
+        border-top: 10px solid #c8b400;
+        flex: 0 0 80px;
+      }
+
+      @media (max-width: 799px) {
+        .part2 .main-content {
+          flex-direction: column;
+        }
+        .part2 .right-nav {
+          width: 100%;
+          order: 1;
+          flex: 1;
+          border-right: none;
+          border-bottom: 10px solid #c8b400;
+        }
+        .part2 .left-nav {
+          width: 100%;
+          order: 2;
+          flex: 1;
+          border-right: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="part1">
+      <div class="flex-12a">
+        <div class="box"></div>
+        <div class="box"></div>
+      </div>
+
+      <div class="flex-12b">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+      </div>
+
+      <div class="flex-12c">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+      </div>
+
+      <div class="flex-12d">
+        <div class="box"></div>
+        <div class="box"></div>
+      </div>
+    </div>
+
+    <div class="part2">
+      <header></header>
+      <div class="main-content">
+        <div class="left-nav"></div>
+        <div class="right-nav"></div>
+      </div>
+      <footer></footer>
+    </div>
+  </body>
+</html>

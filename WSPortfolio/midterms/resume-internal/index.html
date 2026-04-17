@@ -1,0 +1,479 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DAVID | RESUME</title>
+    <style>
+      :root {
+        --black: #000000;
+        --white: #ffffff;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: var(--white);
+        color: var(--black);
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        line-height: 1.5;
+        padding: 40px 20px;
+        display: flex;
+        justify-content: center;
+      }
+
+      .resume-container {
+        width: 100%;
+        max-width: 950px;
+        background-color: var(--white);
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      @media (min-width: 768px) {
+        .resume-container {
+          grid-template-columns: 300px 1fr;
+        }
+      }
+
+      .left-column {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .right-column {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      h1 {
+        font-size: 2.2rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 5px;
+        line-height: 1.2;
+      }
+
+      h3 {
+        font-size: 1rem;
+        font-weight: 400;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        border-bottom: 2px solid var(--black);
+        padding-bottom: 10px;
+        margin-bottom: 0;
+      }
+
+      .section-heading {
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        border-bottom: 2px solid var(--black);
+        padding-bottom: 5px;
+        margin-bottom: 15px;
+        font-weight: bold;
+      }
+
+      .profile-pic {
+        width: 100%;
+        max-width: 250px;
+        aspect-ratio: 1;
+        object-fit: cover;
+        border: 4px solid var(--black);
+        margin-bottom: 10px;
+      }
+
+      .contact-item {
+        margin-bottom: 15px;
+        font-size: 0.95rem;
+      }
+
+      .contact-item strong {
+        display: block;
+        text-transform: uppercase;
+        font-size: 0.75rem;
+        letter-spacing: 1px;
+        margin-bottom: 2px;
+      }
+
+      a {
+        color: var(--black);
+        text-decoration: none;
+        transition: all 0.2s;
+      }
+
+      .skill-list {
+        list-style: none;
+      }
+
+      .skill-list li {
+        margin-bottom: 15px;
+        font-size: 0.95rem;
+      }
+
+      .skill-category {
+        font-weight: bold;
+        display: block;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        letter-spacing: 1px;
+        margin-bottom: 3px;
+      }
+
+      .job-item {
+        margin-bottom: 30px;
+      }
+
+      .job-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 5px;
+        flex-wrap: wrap;
+      }
+
+      .job-title {
+        font-weight: bold;
+        font-size: 1.1rem;
+        text-transform: uppercase;
+      }
+
+      .job-date {
+        font-size: 0.85rem;
+        font-family: monospace;
+      }
+
+      .job-company {
+        font-style: italic;
+        margin-bottom: 10px;
+        display: block;
+      }
+
+      .job-details {
+        list-style-type: square;
+        margin-left: 20px;
+        font-size: 0.95rem;
+      }
+
+      .job-details li {
+        margin-bottom: 5px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.9rem;
+      }
+
+      th,
+      td {
+        border: 1px solid var(--black);
+        padding: 12px;
+        text-align: left;
+      }
+
+      th {
+        background-color: var(--black);
+        color: var(--white);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 0.8rem;
+      }
+
+      .quick-nav {
+        margin-bottom: 10px;
+        font-size: 0.85rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .quick-nav a {
+        border: 1px solid var(--black);
+        padding: 8px 12px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: bold;
+      }
+
+      .quick-nav a:hover {
+        background-color: var(--black);
+        color: var(--white);
+      }
+
+      .btn {
+        display: inline-block;
+        border: 2px solid var(--black);
+        padding: 10px 20px;
+        text-transform: uppercase;
+        font-weight: bold;
+        letter-spacing: 2px;
+        font-size: 0.8rem;
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      .btn:hover {
+        background-color: var(--black);
+        color: var(--white);
+      }
+
+      .footer-links {
+        grid-column: 1 / -1;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 20px;
+        border-top: 2px solid var(--black);
+        padding-top: 20px;
+      }
+    </style>
+  </head>
+  <body id="top">
+    <div class="resume-container">
+      
+      <div class="left-column">
+        <div>
+          <h1>DAVID, CHARLES Y.</h1>
+          <h3>IT Student & Graphic Designer</h3>
+        </div>
+
+        <img src="profile.jpeg" alt="Profile Picture" class="profile-pic" />
+
+        <div class="contact-section">
+          <h2 class="section-heading">Contact</h2>
+          <div class="contact-item">
+            <strong>Location</strong>
+            Concepcion, Tarlac, Philippines
+          </div>
+          <div class="contact-item">
+            <strong>Email</strong>
+            <a href="mailto:chrlsdvd0777@gmail.com">chrlsdvd0777@gmail.com</a>
+          </div>
+          <div class="contact-item">
+            <strong>Phone</strong>
+            +63 977 048 7261
+          </div>
+          <div class="contact-item">
+            <strong>Portfolio</strong>
+            <a href="/WSPortfolio/index.html"
+              >chrlsd4vd.github.io/wansiportfolio</a
+            >
+          </div>
+        </div>
+
+        <div>
+          <h2 class="section-heading" id="hardware">Hardware Skills</h2>
+          <ul class="skill-list">
+            <li>
+              <span class="skill-category">Electric – EIM</span>
+              Knowledgeable in assembling and connecting electrical wires,
+              understanding basic electrical circuits, and troubleshooting
+              common hardware issues.
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="section-heading" id="software">Software Skills</h2>
+          <ul class="skill-list">
+            <li>
+              <span class="skill-category">Canva</span> Advanced proficiency in
+              graphic design
+            </li>
+            <li>
+              <span class="skill-category">Affinity by Canva</span> Professional
+              design software
+            </li>
+            <li>
+              <span class="skill-category">Photoshop</span> Image editing and
+              manipulation
+            </li>
+            <li>
+              <span class="skill-category">HTML</span> Web page structure and
+              semantics
+            </li>
+            <li>
+              <span class="skill-category">JAVA</span> Object-oriented
+              programming
+            </li>
+            <li>
+              <span class="skill-category">Python</span> Scripting and
+              automation
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      
+      <div class="right-column">
+        <div class="quick-nav">
+          <a href="#experience">Experience</a>
+          <a href="#education">Education</a>
+          <a href="#reference">References</a>
+        </div>
+
+        <div id="experience">
+          <h2 class="section-heading">Work Experience</h2>
+
+          <div class="job-item">
+            <div class="job-header">
+              <span class="job-title">Graphic Designer (Freelance)</span>
+              <span class="job-date">2025</span>
+            </div>
+            <span class="job-company">Surface Scan, Dubai</span>
+            <ul class="job-details">
+              <li>Graphic Designer</li>
+              <li>Logo and Poster Making</li>
+              <li>Digital artwork creation for various platforms</li>
+            </ul>
+          </div>
+        </div>
+
+        <div id="education">
+          <h2 class="section-heading">Education</h2>
+
+          <div class="job-item">
+            <div class="job-header">
+              <span class="job-title">College BSIT</span>
+              <span class="job-date">2026 – Present</span>
+            </div>
+            <span class="job-company"
+              >Pampanga State Agriculture University</span
+            >
+          </div>
+
+          <div class="job-item">
+            <div class="job-header">
+              <span class="job-title">College BSIT</span>
+              <span class="job-date">2025 – 2025 / 1st Sem</span>
+            </div>
+            <span class="job-company">Holy Angel University</span>
+          </div>
+
+          <div class="job-item">
+            <div class="job-header">
+              <span class="job-title">Senior High School / HUMSS</span>
+              <span class="job-date">2023 – 2025</span>
+            </div>
+            <span class="job-company"
+              >Benigno S. Aquino National High School</span
+            >
+          </div>
+
+          <div class="job-item">
+            <div class="job-header">
+              <span class="job-title">Junior High School</span>
+              <span class="job-date">2019 – 2023</span>
+            </div>
+            <span class="job-company"
+              >Benigno S. Aquino National High School</span
+            >
+          </div>
+
+          <div class="job-item">
+            <div class="job-header">
+              <span class="job-title">Elementary</span>
+              <span class="job-date">Graduated 2019</span>
+            </div>
+            <span class="job-company">San Miguel Elementary School</span>
+          </div>
+        </div>
+
+        <div id="reference">
+          <h2 class="section-heading">Character Reference</h2>
+          <div style="overflow-x: auto">
+            <table>
+              <thead>
+                <tr>
+                  <th>Full Name</th>
+                  <th>Designation</th>
+                  <th>Email</th>
+                  <th>Contact Number</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Charles David</td>
+                  <td>Student</td>
+                  <td>
+                    <a href="mailto:chrlsdvd0777@gmail.com"
+                      >chrlsdvd0777@gmail.com</a
+                    >
+                  </td>
+                  <td>09770487261</td>
+                </tr>
+                <tr>
+                  <td>Lilibeth David</td>
+                  <td>Hong Kong – OFW</td>
+                  <td>
+                    <a href="mailto:lilibethdavid@gmail.com"
+                      >lilibethdavid@gmail.com</a
+                    >
+                  </td>
+                  <td>09922744292</td>
+                </tr>
+                <tr>
+                  <td>Shiela David</td>
+                  <td>Student</td>
+                  <td>
+                    <a href="mailto:shldvd1802@icloud.com"
+                      >shldvd1802@icloud.com</a
+                    >
+                  </td>
+                  <td>09462976893</td>
+                </tr>
+                <tr>
+                  <td>Noel David</td>
+                  <td>Construction Worker</td>
+                  <td>N/A</td>
+                  <td>N/A</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div>
+          <h2 class="section-heading" id="additional">Additional Skills</h2>
+          <ul class="skill-list">
+            <li>
+              <span class="skill-category">Graphic Design</span> Creating logos,
+              posters, and digital artwork
+            </li>
+            <li>
+              <span class="skill-category">Adaptability</span> Quickly adjusting
+              to new technologies and environments
+            </li>
+            <li>
+              <span class="skill-category">Arts</span> Traditional and digital
+              art techniques
+            </li>
+            <li>
+              <span class="skill-category">Time Management</span> Efficient task
+              prioritization and deadline management
+            </li>
+            <li>
+              <span class="skill-category">Sports</span> Active participation in
+              basketball and badminton
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <a href="sourceCode.png" target="_blank" class="btn"
+          >View Source Code</a
+        >
+        <a href="#top" class="btn">↑ Back to Top</a>
+      </div>
+    </div>
+  </body>
+</html>
