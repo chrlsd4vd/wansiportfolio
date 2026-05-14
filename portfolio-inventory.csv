@@ -1,0 +1,18 @@
+Type,Category,Name,Path,Description,Status
+Project,Root,index.html,./index.html,Main portfolio landing page,Active
+Project,Root,README.md,./README.md,Project documentation,Active
+Stylesheet,CSS,main.css,./css/main.css,Main stylesheet with theme and layout,Active
+Script,JavaScript,app.js,./js/app.js,Main application logic and interactivity,Active
+Image,Assets,animatedprof.png,./assets/images/animatedprof.png,Animated profile picture,Active
+Image,Assets,profile.jpeg,./assets/images/profile.jpeg,Profile photograph,Active
+Midterm,Midterms,css-layout,./midterms/css-layout/,CSS layout demonstration,Complete
+Midterm,Midterms,display-property,./midterms/display-property/,CSS display property exploration,Complete
+Midterm,Midterms,image-map,./midterms/image-map/,HTML image mapping,Complete
+Midterm,Midterms,resume-internal,./midterms/resume-internal/,Resume with internal links,Complete
+Midterm,Midterms,resume-writing,./midterms/resume-writing/,Resume formatting task,Complete
+Midterm,Midterms,rfp-proposal,./midterms/rfp-proposal/,Request for proposal document,Complete
+Midterm,Midterms,semantic-html,./midterms/semantic-html/,Semantic HTML5 demonstration,Complete
+Midterm,Midterms,table-list,./midterms/table-list/,HTML tables and lists,Complete
+Final,Finals,bootstrap-grid,./finals/boostrap-grid/,Bootstrap grid system,Complete
+Final,Finals,css-flexbox,./finals/css-flexbox/,CSS Flexbox layout,Complete
+Final,Finals,css-positioning,./finals/css-positioning/,CSS positioning techniques,Complete

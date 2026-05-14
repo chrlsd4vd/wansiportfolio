@@ -1,0 +1,162 @@
+{
+  "project": {
+    "name": "Charles Yumul David - Portfolio Website",
+    "description": "Personal portfolio website showcasing academic work and IT projects",
+    "owner": "Charles David",
+    "location": "Concepcion, Tarlac, Philippines",
+    "email": "chrlsdvd0777@gmail.com",
+    "github": "https://github.com/chrlsd4vd/wansiportfolio",
+    "liveUrl": "https://chrlsd4vd.github.io/wansiportfolio/",
+    "status": "Active"
+  },
+  "structure": {
+    "root": {
+      "files": [
+        {
+          "name": "index.html",
+          "description": "Main portfolio landing page",
+          "type": "HTML"
+        },
+        {
+          "name": "README.md",
+          "description": "Project documentation and instructions",
+          "type": "Markdown"
+        }
+      ],
+      "directories": [
+        "assets/",
+        "css/",
+        "js/",
+        "midterms/",
+        "finals/",
+        ".git/"
+      ]
+    },
+    "assets": {
+      "path": "assets/",
+      "description": "Media files and resources",
+      "subdirectories": [
+        {
+          "name": "images/",
+          "files": [
+            "animatedprof.png",
+            "profile.jpeg"
+          ],
+          "description": "Profile and portfolio images"
+        }
+      ]
+    },
+    "css": {
+      "path": "css/",
+      "description": "Stylesheet files",
+      "files": [
+        {
+          "name": "main.css",
+          "description": "Main stylesheet with theme, layout, and component styles"
+        }
+      ]
+    },
+    "js": {
+      "path": "js/",
+      "description": "JavaScript files",
+      "files": [
+        {
+          "name": "app.js",
+          "description": "Main application JavaScript with interactivity and theme toggle"
+        }
+      ]
+    },
+    "midterms": {
+      "path": "midterms/",
+      "description": "Midterm laboratory tasks and assignments",
+      "projects": [
+        {
+          "name": "css-layout",
+          "files": ["index.html", "script.js", "style.css"],
+          "description": "CSS layout demonstration"
+        },
+        {
+          "name": "display-property",
+          "files": ["index.html"],
+          "description": "CSS display property exploration"
+        },
+        {
+          "name": "image-map",
+          "files": ["index.html"],
+          "description": "HTML image mapping project"
+        },
+        {
+          "name": "resume-internal",
+          "files": ["index.html"],
+          "description": "Internal links and resume layout"
+        },
+        {
+          "name": "resume-writing",
+          "files": ["index.html"],
+          "description": "Resume writing and formatting"
+        },
+        {
+          "name": "rfp-proposal",
+          "files": ["index.html"],
+          "description": "Request for proposal document"
+        },
+        {
+          "name": "semantic-html",
+          "files": ["index.html"],
+          "description": "Semantic HTML5 elements demonstration"
+        },
+        {
+          "name": "table-list",
+          "files": ["index.html"],
+          "description": "HTML tables and list structures"
+        }
+      ]
+    },
+    "finals": {
+      "path": "finals/",
+      "description": "Final laboratory tasks and assignments",
+      "projects": [
+        {
+          "name": "boostrap-grid",
+          "files": ["index.html", "style.css"],
+          "description": "Bootstrap grid system implementation"
+        },
+        {
+          "name": "css-flexbox",
+          "files": ["flexbox.html"],
+          "description": "CSS Flexbox layout demonstration"
+        },
+        {
+          "name": "css-positioning",
+          "files": ["index.html", "style.css"],
+          "description": "CSS positioning techniques (absolute, relative, fixed, sticky)"
+        }
+      ]
+    }
+  },
+  "technologies": [
+    "HTML5",
+    "CSS3",
+    "JavaScript",
+    "Git & GitHub",
+    "Python",
+    "Java"
+  ],
+  "features": [
+    "Bento grid layout design",
+    "Dark/Light theme toggle",
+    "Responsive design",
+    "Profile showcase",
+    "Project portfolio",
+    "Skills highlighting"
+  ],
+  "fileCount": {
+    "total": 28,
+    "html": 14,
+    "css": 4,
+    "js": 1,
+    "images": 2,
+    "markdown": 1,
+    "other": 6
+  }
+}

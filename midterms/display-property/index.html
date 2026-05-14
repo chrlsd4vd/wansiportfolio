@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab Task 6</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 30px;
+        display: flex;
+        justify-content: center;
+      }
+      fieldset {
+        border: 1px solid #090505;
+        border-radius: 12px;
+        padding: 40px;
+        max-width: 550px;
+        width: 100%;
+      }
+      .info-input {
+        background-color: lightgrey;
+        display: block;
+        width: 250px;
+        padding: 8px;
+        margin: 5px 0 15px;
+        margin-left: 25px;
+        border: 1px solid #aaa;
+        border-radius: 4px;
+        font-size: 14px;
+      }
+      .survey-paragraph {
+        display: inline-block;
+        width: 350px;
+        vertical-align: middle;
+        margin: 0 10px 0 0;
+        font-size: 16px;
+        background-color: #fff;
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid #ddd;
+      }
+      .survey-button {
+        display: inline-block;
+        width: 50px;
+        padding: 10px 0;
+        margin-right: 8px;
+        font-size: 12px;
+        text-align: center;
+      }
+      .google-logo {
+        margin: 20px 0 10px 20px;
+        width: 200px;
+        display: block;
+      }
+      .search-google {
+        background-color: lightgrey;
+        width: 470px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 24px;
+        font-size: 16px;
+      }
+      .signup-form {
+        max-width: 500px;
+        margin: 20px 0;
+      }
+      .name-size {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+      .name-input {
+        background-color: lightgrey;
+        flex: 1;
+        padding: 8px;
+        border: 1px solid #aaa;
+        border-radius: 4px;
+        font-size: 14px;
+      }
+      .email-input {
+        background-color: lightgrey;
+        display: block;
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #aaa;
+        border-radius: 4px;
+        font-size: 14px;
+        margin-bottom: 15px;
+        box-sizing: border-box;
+      }
+      .signup-button {
+        background-color: blue;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        font-size: 16px;
+        cursor: pointer;
+        width: 100%;
+      }
+      .signup-button:hover {
+        background-color: rgb(9, 9, 168);
+      }
+      .req-form {
+        max-width: 500px;
+        margin-top: 20px;
+      }
+      .des-input {
+        background-color: lightgrey;
+        display: block;
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 12px;
+        border: 1px solid #bbb;
+        border-radius: 6px;
+        font-size: 15px;
+        box-sizing: border-box;
+      }
+      .req-buttons {
+        display: flex;
+        gap: 10px;
+        margin-top: 10px;
+      }
+      .req-button {
+        width: 200px;
+        padding: 12px;
+        border: none;
+        border-radius: 6px;
+        font-size: 15px;
+        font-weight: bold;
+      }
+      .request-now {
+        background-color: #000;
+        color: white;
+      }
+      .request-now:hover {
+        background-color: #333;
+      }
+      .schedule {
+        background-color: #e0e0e0;
+        color: #000;
+      }
+      .schedule:hover {
+        background-color: #d0d0d0;
+      }
+    </style>
+  </head>
+  <body>
+    <fieldset>
+      <div>
+        <input type="text" id="name" class="info-input" placeholder="Name" />
+        <input type="email" id="email" class="info-input" placeholder="Email" />
+      </div>
+
+      <div align="center">
+        <p class="survey-paragraph">
+          Thanks for chatting with our customer support. Would you like to take
+          our quick survey?
+        </p>
+        <button class="survey-button">Yes</button>
+        <button class="survey-button">No</button>
+      </div>
+
+      <div align="center">
+        <img class="google-logo" src="google.png" alt="Google Logo" />
+        <div>
+          <input
+            type="text"
+            class="search-google"
+            placeholder="Search Google or type a URL"
+          />
+        </div>
+      </div>
+
+      <div align="center">
+        <div class="signup-form">
+          <div class="name-size">
+            <input type="text" class="name-input" placeholder="First name" />
+            <input type="text" class="name-input" placeholder="Last name" />
+          </div>
+          <input type="email" class="email-input" placeholder="Email" />
+          <button class="signup-button">Sign Up</button>
+        </div>
+      </div>
+
+      <h3 style="margin-left: 25px; margin-bottom: 10px">Request a ride now</h3>
+      <div align="center">
+        <div class="req-form">
+          <input
+            type="text"
+            class="des-input"
+            placeholder="Enter pickup location"
+          />
+          <input
+            type="text"
+            class="des-input"
+            placeholder="Enter destination"
+          />
+          <div class="req-buttons">
+            <button class="req-button request-now">Request now</button>
+            <button class="req-button schedule">Schedule for later</button>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </body>
+</html>
